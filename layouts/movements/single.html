@@ -1,0 +1,209 @@
+{{ define "main" }}
+<div class="movement-page">
+    <header class="movement-header">
+        <nav class="breadcrumb">
+            <a href="/art-wheel">Art Wheel</a> > 
+            <span>{{ .Title }}</span>
+        </nav>
+        <button class="btn-small" onclick="history.back()">Back</button>
+    </header>
+
+    <div class="movement-content">
+        <div class="movement-info">
+            <h1 class="movement-title">{{ .Title }}</h1>
+            <p class="movement-description">{{ .Params.description }}</p>
+        </div>
+
+        <div class="movement-overview">
+            {{ .Content }}
+        </div>
+
+        <div class="featured-artists">
+            <h2>Featured Artists</h2>
+            <div class="artists-grid">
+                {{ $movementSlug := .Params.slug }}
+                {{ range where .Site.Pages "Section" "artists" }}
+                    {{ if eq .Params.movement $movementSlug }}
+                    {{ $movementColor := "#f8f9fa" }}
+                    {{ range $.Site.Data.art_history_movements }}
+                        {{ if eq .Slug $movementSlug }}
+                            {{ $movementColor = index . "Bkgd Color" }}
+                        {{ end }}
+                    {{ end }}
+                    <div class="artist-card" style="background-color: {{ $movementColor }}">
+                        <a href="{{ .RelPermalink }}" class="artist-link">
+                            <div class="artist-card-header">
+                                <h3 class="artist-name">{{ .Title }}</h3>
+                                <p class="notable-work">{{ .Params.artwork_title }}</p>
+                            </div>
+                            {{ if .Params.notable_artwork }}
+                            <div class="artist-image">
+                                <img src="{{ .Params.notable_artwork }}" alt="{{ .Title }}" />
+                            </div>
+                            {{ end }}
+                        </a>
+                    </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.movement-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Averia Sans Libre", sans-serif;
+}
+
+.movement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.breadcrumb {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #e67e22; /* Orange to match theme */
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #d35400;
+}
+
+.movement-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.movement-title {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    color: #1a1a1a;
+}
+
+.movement-description {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.movement-overview {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 400;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.movement-overview h2 {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.featured-artists h2 {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.artist-card {
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.artist-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.artist-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.artist-card-header {
+    margin-bottom: 15px;
+}
+
+.artist-name {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #e67e22;
+}
+
+.notable-work {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+.artist-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .movement-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .movement-title {
+        font-size: 2rem;
+    }
+    
+    .artists-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{{ end }}
