@@ -1,0 +1,15 @@
+baseURL = 'https://artistsarejerks.pages.dev/'
+languageCode = 'en-us'
+title = 'Artists Are Jerks'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[taxonomies]
+  movement = "movements"
+
+[params]
+  description = "Explore the art that broke free from Abstract Expressionism"
+  author = "Alan Just"
