@@ -330,14 +330,29 @@
 }
 
 /* Mobile responsiveness */
+@media (max-width: 1024px) {
+  /* TABLET/MOBILE: Stack wheel above content */
+  .art-wheel-main {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+  
+  .art-wheel-content {
+    min-width: auto;
+    max-width: 600px;
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
+  /* MOBILE: Smaller wheel + adjustments */
   .art-wheel-wrapper {
     width: 400px;
     height: 400px;
   }
   
   .art-wheel-content {
-    min-width: auto;
     max-width: 100%;
     padding: 20px;
   }
@@ -352,5 +367,24 @@
   
   .art-wheel-artwork::after {
     display: none; /* Hide "click to learn more" on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  /* SMALL MOBILE: Even smaller adjustments */
+  .art-wheel-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .art-wheel-content {
+    padding: 15px;
+  }
+  
+  .art-wheel-btn {
+    width: 120px !important;
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+    margin: 0 5px !important;
   }
 }
