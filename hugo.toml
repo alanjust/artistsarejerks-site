@@ -13,3 +13,4 @@ title = 'Artists Are Jerks'
 [params]
   description = "Explore the art that broke free from Abstract Expressionism"
   author = "Alan Just"
+  # Force rebuild 2025-07-25 - images should now be live!
