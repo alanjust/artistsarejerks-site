@@ -43,8 +43,22 @@
                 <a href="{{ $movement.RelPermalink }}" class="movement-link">
                     <h2 class="movement-title">{{ $movement.Title }}</h2>
                     <p class="movement-description">{{ $movement.Params.description }}</p>
-                    <div class="movement-meta">
-                        <span class="artist-count">{{ $movement.Params.artist_count | default 0 }} artists</span>
+                    <div class="movement-artists">
+                        {{/* Find artists for this movement */}}
+                        {{ $movementSlug := .Slug }}
+                        {{ $artists := slice }}
+                        {{ range $.Site.Data.artists }}
+                            {{ if eq (index . "Related Art Movement") $movementSlug }}
+                                {{ $artists = $artists | append (index . "Artist Name") }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        {{/* Display the artists */}}
+                        {{ if $artists }}
+                            {{ range $index, $artist := $artists }}
+                                <span class="artist-name">{{ $artist }}</span>{{ if ne $index (sub (len $artists) 1) }}, {{ end }}
+                            {{ end }}
+                        {{ end }}
                     </div>
                 </a>
             </div>
@@ -141,14 +155,13 @@
     -webkit-box-orient: vertical;
 }
 
-.movement-meta {
+.movement-artists {
     margin-top: auto;
     padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
     flex-shrink: 0;
 }
 
-.artist-count {
+.artist-name {
     font-family: "Averia Sans Libre", sans-serif;
     font-size: 0.85rem;
     color: #666;
