@@ -4,7 +4,7 @@ description: "Interactive tools and resources for developing artistic perception
 type: "art-education"
 ---
 
-# Art Education: Learning to See Differently
+# Learning to See Differently
 
 Art education isn't about memorizing dates or artists' names—it's about cultivating a way of seeing that transforms your experience of the world. When you think like an artist, ordinary things reveal extraordinary qualities. The familiar becomes surprising.
 
