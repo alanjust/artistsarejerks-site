@@ -45,7 +45,7 @@
                     <p class="movement-description">{{ $movement.Params.description }}</p>
                     <div class="movement-artists">
                         {{/* Find artists for this movement */}}
-                        {{ $movementSlug := .Slug }}
+                        {{ $movementSlug := . }}
                         {{ $artists := slice }}
                         {{ range $.Site.Data.artists }}
                             {{ if eq (index . "Related Art Movement") $movementSlug }}
