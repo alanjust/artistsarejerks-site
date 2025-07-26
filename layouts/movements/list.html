@@ -55,8 +55,8 @@
                         
                         {{/* Display the artists */}}
                         {{ if $artists }}
-                            {{ range $index, $artist := $artists }}
-                                <span class="artist-name">{{ $artist }}</span>{{ if ne $index (sub (len $artists) 1) }}, {{ end }}
+                            {{ range $artists }}
+                                <div class="artist-name">{{ . }}</div>
                             {{ end }}
                         {{ end }}
                     </div>
