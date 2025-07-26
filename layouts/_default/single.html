@@ -1,0 +1,87 @@
+{{ define "main" }}
+<div class="single-page">
+    <div class="page-content">
+        <h1 class="page-title">{{ .Title }}</h1>
+        <div class="page-body">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+
+<style>
+.single-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: "Averia Sans Libre", sans-serif;
+}
+
+.page-title {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 30px 0;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.page-body {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #444;
+}
+
+.page-body h2 {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #e67e22;
+    margin: 30px 0 15px 0;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 5px;
+}
+
+.page-body h3 {
+    font-family: "Averia Sans Libre", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    margin: 25px 0 12px 0;
+}
+
+.page-body p {
+    margin: 0 0 18px 0;
+    font-size: 1rem;
+}
+
+.page-body ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.page-body li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.page-body strong {
+    font-weight: 600;
+    color: #e67e22;
+}
+
+@media (max-width: 768px) {
+    .single-page {
+        padding: 30px 15px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-body h2 {
+        font-size: 1.3rem;
+    }
+}
+</style>
+{{ end }}
