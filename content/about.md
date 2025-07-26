@@ -12,7 +12,7 @@ Our mission is to make art accessible to the "art curious" by providing clear ex
 
 ## Copyright Disclaimer
 
-This website uses images of artworks for educational and non-commercial purposes. We believe this constitutes fair use under copyright law. If you are a copyright holder and believe that your work has been used inappropriately, please contact us at [your email address] and we will promptly address your concerns.
+This website uses images of artworks for educational and non-commercial purposes. We believe this constitutes fair use under copyright law. If you are a copyright holder and believe that your work has been used inappropriately, please contact us at alan@alanjust.com and we will promptly address your concerns.
 
 ## Educational Purpose
 
@@ -25,4 +25,4 @@ All content on this site is intended for educational use, helping visitors:
 
 ## Contact
 
-For questions about the content or to report concerns, please reach out to us at [your email address].
+For questions about the content or to report concerns, please reach out to us at alan@alanjust.com.
