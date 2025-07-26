@@ -16,6 +16,16 @@
             font-family: "Averia Sans Libre", sans-serif; 
         }
         
+        /* Global link styling */
+        a {
+            color: #e67e22;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: #d35400;
+        }
+        
         /* UNIFIED BUTTON STYLING - Available site-wide */
         .btn-small {
             font-family: "Averia Sans Libre", sans-serif;
@@ -87,7 +97,7 @@
             font-weight: 400;
             font-size: 1.25rem;
             text-decoration: none;
-            color: #1a1a1a;
+            color: #1a1a1a !important; /* Override global orange for site title */
             position: absolute;
             left: 20px; /* Keep site title on the left */
         }
@@ -102,7 +112,7 @@
         .nav-links a {
             font-family: "Averia Sans Libre", sans-serif;
             text-decoration: none;
-            color: #444;
+            color: #444 !important; /* Override global orange for nav */
             font-weight: 500;
             transition: color 0.2s ease;
             padding: 8px 16px;
@@ -110,12 +120,12 @@
             transition: all 0.2s ease;
         }
         .nav-links a:hover {
-            color: #e67e22; /* Orange to match theme */
+            color: #e67e22 !important; /* Orange to match theme */
             background-color: rgba(230, 126, 34, 0.1);
         }
         /* Active page styling */
         .nav-links a.active {
-            color: #e67e22; /* Orange to match theme */
+            color: #e67e22 !important; /* Orange to match theme */
             background-color: rgba(230, 126, 34, 0.15);
         }
         main {
