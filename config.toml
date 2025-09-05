@@ -1,7 +1,7 @@
 baseURL = "https://artistsarejerks-site.pages.dev/"
 languageCode = "en-us"
 title = "Artists Are Jerks"
-theme = ""
+
 assetDir = "assets"
 [pagination]
   pagerSize = 10
