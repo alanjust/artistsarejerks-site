@@ -1,193 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Spicy+Rice&display=swap" rel="stylesheet">
-    
-    <style>
-        body { 
-            margin: 0; 
-            font-family: "Averia Sans Libre", sans-serif; 
-        }
-        
-        /* Global heading letter spacing */
-        h1, h2, h3, h4, h5, h6 {
-            letter-spacing: 0.2em;
-        }
-        
-        /* Global link styling */
-        a {
-            color: #e67e22;
-            transition: color 0.2s ease;
-        }
-        
-        a:hover {
-            color: #d35400;
-        }
-        
-        /* UNIFIED BUTTON STYLING - Available site-wide */
-        .btn-small {
-            font-family: "Averia Sans Libre", sans-serif;
-            font-weight: 500;
-            width: auto;
-            background: white;
-            color: #7f8c8d;
-            border: 2px solid #bdc3c7;
-            padding: 8px 16px;
-            margin: 0 5px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-small:hover {
-            background: #ecf0f1;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            color: #7f8c8d;
-            text-decoration: none;
-        }
-        
-        .art-wheel-btn {
-            font-family: "Averia Sans Libre", sans-serif;
-            font-weight: 500;
-            width: 150px;
-            background: white;
-            color: #7f8c8d;
-            border: 2px solid #bdc3c7;
-            padding: 10px 24px;
-            margin: 0 10px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .art-wheel-btn:hover {
-            background: #ecf0f1;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            color: #7f8c8d;
-        }
-        .site-header {
-            border-bottom: 1px solid #e0e0e0;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .site-nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the navigation */
-            height: 60px;
-            position: relative;
-        }
-        .site-title {
-            font-family: "Spicy Rice", serif;
-            font-weight: 400;
-            font-size: 1.25rem;
-            text-decoration: none;
-            color: #d35400 !important; /* Dark orange for site title */
-            position: absolute;
-            left: 20px; /* Keep site title on the left */
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 30px;
-            /* Navigation links are now centered due to parent justify-content: center */
-        }
-        .nav-links a {
-            font-family: "Averia Sans Libre", sans-serif;
-            text-decoration: none;
-            color: #444 !important; /* Override global orange for nav */
-            font-weight: 500;
-            transition: color 0.2s ease;
-            padding: 8px 16px;
-            border-radius: 25px; /* Match back button radius */
-            transition: all 0.2s ease;
-        }
-        .nav-links a:hover {
-            color: #e67e22 !important; /* Orange to match theme */
-            background-color: rgba(230, 126, 34, 0.1);
-        }
-        /* Active page styling */
-        .nav-links a.active {
-            color: #e67e22 !important; /* Orange to match theme */
-            background-color: rgba(230, 126, 34, 0.15);
-        }
-        main {
-            min-height: calc(100vh - 60px);
-        }
-        
-        /* Mobile responsive navigation */
-        @media (max-width: 768px) {
-            .site-nav {
-                flex-direction: column;
-                height: auto;
-                padding: 15px 20px;
-            }
-            .site-title {
-                position: static;
-                margin-bottom: 15px;
-            }
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav-links a {
-                padding: 6px 12px;
-                font-size: 14px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .nav-links {
-                gap: 10px;
-            }
-            .nav-links a {
-                padding: 5px 10px;
-                font-size: 13px;
-            }
-        }
-    </style>
+    <title>{{ .Title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Spicy+Rice&display=swap"
+        rel="stylesheet">
+    {{ $mainCSS := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}" integrity="{{ $mainCSS.Data.Integrity }}"
+        crossorigin="anonymous">
+    {{ $attentionCSS := resources.Get "css/attention.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $attentionCSS.RelPermalink }}" integrity="{{ $attentionCSS.Data.Integrity }}"
+        crossorigin="anonymous">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <meta name="theme-color" content="#111418">
+
+    {{ if eq .Type "art-wheel" }}
+    {{ $awCSS := resources.Get "css/components/art-wheel.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $awCSS.RelPermalink }}" integrity="{{ $awCSS.Data.Integrity }}"
+        crossorigin="anonymous">
+    {{ end }}
+    <!-- Component styles will be loaded by their respective templates -->
 </head>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/assets/js/sw.js'));
+    }
+</script>
+
+
 <body>
-    <header class="site-header">
-        <nav class="site-nav">
-            <a href="/" class="site-title">ARTISTS ARE JERKS</a>
-            <ul class="nav-links">
-                <li><a href="/art-education" {{ if eq .Section "art-education" }}class="active"{{ end }}>Art Education</a></li>
-                <li><a href="/about" {{ if eq .Section "about" }}class="active"{{ end }}>About / Disclaimer</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    {{ partial "header.html" . }}
+
     <main>
-        {{ block "main" . }}
-        <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
-            <h1>{{ .Title }}</h1>
-            {{ .Content }}
-        </div>
-        {{ end }}
+        {{ block "main" . }}{{ end }}
     </main>
+
+    {{ partial "footer.html" . }}
 </body>
+
 </html>

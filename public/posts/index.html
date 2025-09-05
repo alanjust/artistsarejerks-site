@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/aaJ-ui.css">
+</head>
+
+<body>
+    <header>
+        <h1>Alan Just Presents: Artists Are Jerks</h1>
+    </header>
+
+    <nav>
+        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul id="main-menu">
+            
+            <li>
+                <a href="/about/" aria-haspopup="false">About</a>
+                
+            </li>
+            
+            <li>
+                <a href="/gallery/" aria-haspopup="true">Gallery</a>
+                
+                <ul>
+                    
+                    <li><a href="/gallery/found/">Found Objects</a></li>
+                    
+                    <li><a href="/gallery/jerks/">Jerks in Your Area</a></li>
+                    
+                    <li><a href="/gallery/unfinished/">Unfinished Works</a></li>
+                    
+                </ul>
+                
+            </li>
+            
+        </ul>
+    </nav>
+
+    <main>
+        
+<h2>Posts</h2>
+<ul>
+    
+</ul>
+
+    </main>
+
+    <footer>
+        <div>Built with recycled pixels &amp; strong coffee.</div>
+        <div>Copyright © 2025 Artists Are Jerks. All rights reserved, egos lightly bruised.</div>
+    </footer>
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("main-menu");
+
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+
+        const linksWithChildren = document.querySelectorAll("nav li > a[aria-haspopup='true']");
+
+        linksWithChildren.forEach(link => {
+            link.addEventListener("click", function (e) {
+                if (window.innerWidth <= 768) {
+                    const parent = this.parentElement;
+                    parent.classList.toggle("open");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic Break #1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Spicy+Rice&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.min.9af5a3cb255cbaa784d949ccb2704d39c0ab08aa7ea6f42528bc77fe2c371ae9.css" integrity="sha256-mvWjyyVcuqeE2UnMsnBNOcCrCKp&#43;pvQlKLx3/iw3Guk="
+        crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/css/attention.min.6cd532ecf1e7fad5ddd0af4af37a92ba32ca29ceca59365d6633d4f64dc9f296.css" integrity="sha256-bNUy7PHn&#43;tXd0K9K83qSujLKKc7KWTZdZjPU9k3J8pY="
+        crossorigin="anonymous">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <meta name="theme-color" content="#111418">
+
+    
+    
+</head>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/assets/js/sw.js'));
+    }
+</script>
+
+
+<body>
+    <button onclick="window.history.back()"
+    style="position: fixed; top: 1.2rem; left: 1.2rem; background: none; border: none; padding: 0; z-index: 1000; cursor: pointer;">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L10 14L18 22" stroke="#58e003" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+</button>
+<header>
+    <h1>Artists Are Jerks</h1>
+</header>
+
+<nav>
+    <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul id="main-menu">
+        
+        <li>
+            <a href="/" aria-haspopup="false">Home</a>
+            
+        </li>
+        
+        <li>
+            <a href="/gallery/" aria-haspopup="true">Gallery</a>
+            
+            <ul>
+                
+                <li><a href="/gallery/jerks/">Jerks in Your Area</a></li>
+                
+                <li><a href="/gallery/found/">Found Objects</a></li>
+                
+                <li><a href="/gallery/unfinished/">Unfinished Works</a></li>
+                
+            </ul>
+            
+        </li>
+        
+        <li>
+            <a href="/art-wheel/" aria-haspopup="false">Art Wheel</a>
+            
+        </li>
+        
+        <li>
+            <a href="/art-education/" aria-haspopup="false">Art Education</a>
+            
+        </li>
+        
+        <li>
+            <a href="/movements/" aria-haspopup="false">Movements</a>
+            
+        </li>
+        
+        <li>
+            <a href="/artists/" aria-haspopup="false">Artists&#39; Work</a>
+            
+        </li>
+        
+        <li>
+            <a href="/about/" aria-haspopup="false">About</a>
+            
+        </li>
+        
+    </ul>
+</nav>
+
+    <main>
+        
+<div class="main-content-container">
+  <h2>Aesthetic Break #1</h2>
+  <p>Try the 2‑minute drill:</p>
+<div class="slowlook attn-card" data-duration="120"
+  data-prompt='Stick with the value structure before naming objects.'>
+  <div class="attn-row attn-center">
+    <button class="sl-start">Start 2‑minute Look</button>
+    <div class="timer" aria-live="polite" title="remaining">02:00</div>
+  </div>
+  <p class="sl-prompt attn-center"></p>
+  <div class="sl-reflect attn-hidden">
+    <label for="sl-reflect-text">What changed for you?</label>
+    <textarea id="sl-reflect-text" placeholder="2–3 sentences…"></textarea>
+  </div>
+</div>
+
+<script defer src="/js/attention/slow-look-timer.min.d22983ded857b4fb0a0c1836884b5445a7e6d5f33ec9d2712598fd01bf2fd05b.js" integrity="sha256-0imD3thXtPsKDBg2iEtURafm1fM&#43;ydJxJZj9Ab8v0Fs=" crossorigin="anonymous"></script>
+<p>Then make it strange:</p>
+<div class="mis attn-card" data-src="" data-mode="value">
+  <div class="controls">
+    <label>Mode:
+      <select class="mis-mode">
+        <option value="value">Value‑only</option>
+        <option value="posterize">Posterize</option>
+        <option value="edges">Edges</option>
+        <option value="original">Original</option>
+      </select>
+    </label>
+    <label>Intensity <input class="mis-int" type="range" min="1" max="12" value="6"></label>
+  </div>
+  <canvas class="mis-canvas" aria-label="transformed image"></canvas>
+  <img class="mis-img attn-hidden" alt="source" src="" />
+  <p class="hint attn-center">Slide intensity; switch modes; describe what becomes clearer vs. what disappears.</p>
+</div>
+
+<script defer src="/js/attention/make-it-strange.min.ba8c8126bf82a15fbdef32d87fde7225629c9c472062cdb68c870a7ede273955.js" integrity="sha256-uoyBJr&#43;CoV&#43;97zLYf95yJWKcnEcgYs22jIcKft4nOVU=" crossorigin="anonymous"></script>
+<p>Pick a way to look:</p>
+
+<div class="artwheel attn-card" data-src="/components/art-wheel/art-elements.a0cfc95b22396a0bcfe11431595e115b6e13a384d45bd11e08c1ec9ed0e2d259.json" tabindex="0">
+  <div class="wheel-wrap">
+    <svg class="wheel" width="360" height="360" viewBox="0 0 360 360" aria-label="art wheel">
+      <g id="wheel"></g>
+      <circle cx="180" cy="180" r="175" fill="none" stroke="#ddd" />
+      <circle cx="180" cy="180" r="6" fill="#333" />
+    </svg>
+    <div class="wheel-btns">
+      <button class="aw-left" aria-label="rotate left">◀</button>
+      <button class="aw-right" aria-label="rotate right">▶</button>
+    </div>
+  </div>
+  <div class="panel">
+    <h3 class="aw-title"></h3>
+    <p class="aw-desc"></p>
+    <p class="aw-prompt attn-center"><em></em></p>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/components/art-wheel/art-wheel.min.0d0d1717a6c824ef9bfa54f794c8790c8e93f7c44de53e6f854beea132fd431e.css" integrity="sha256-DQ0XF6bIJO&#43;b&#43;lT3lMh5DI6T98RN5T5vhUvuoTL9Qx4=" crossorigin="anonymous">
+
+<script defer src="/components/art-wheel/art-wheel.min.542f21ff437d503125a10359d0e556761d9818e3b5130274a6c3d1a20bd575fb.js" integrity="sha256-VC8h/0N9UDEloQNZ0OVWdh2YGOO1EwJ0psPRogvVdfs=" crossorigin="anonymous"></script>
+
+</div>
+
+    </main>
+
+    <footer>
+    <div>Built with appropriated pixels &amp; strong coffee.</div>
+    <div>Copyright © 2025 Artists Are Jerks. All rights reserved.</div>
+</footer>
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("main-menu");
+
+    toggle && toggle.addEventListener("click", () => {
+        menu && menu.classList.toggle("show");
+    });
+
+    const linksWithChildren = document.querySelectorAll("nav li > a[aria-haspopup='true']");
+
+    linksWithChildren.forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (window.innerWidth <= 768) {
+                const parent = this.parentElement;
+                parent && parent.classList.toggle("open");
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

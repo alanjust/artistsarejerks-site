@@ -1,28 +1,33 @@
 ---
 title: "About"
-date: 2025-07-25T17:00:00-07:00
-type: "page"
+date: 2025-07-26
+draft: false
 ---
 
-## About Artists Are Jerks
+## Why We Roast
 
-This interactive educational website explores the art movements that emerged after Abstract Expressionism, from the Pop Art reaction of the 1960s to today's diverse contemporary styles. 
+We punch up, not down. We laugh first, learn second, and season everything with liquid smoke-flavored snark.
 
-Our mission is to make art accessible to the "art curious" by providing clear explanations, engaging visual content, and interactive tools that help visitors understand the evolution of contemporary art.
+### About the Presenter, and Artist (or the Jerk)
 
-## Copyright Disclaimer
+Alan Just is a real artist — or at least, that's what the museum ID badge says.
 
-This website uses images of artworks for educational and non-commercial purposes. We believe this constitutes fair use under copyright law. If you are a copyright holder and believe that your work has been used inappropriately, please contact us at alan@alanjust.com and we will promptly address your concerns.
+He's definitely not bitter. Nor does he judge the artistic mediocrity of others while tending his partner's tomato plants, growing mushrooms, and pretending not to check his site traffic hourly.
 
-## Educational Purpose
+This site is a celebration of failure, ego, and unjustified confidence. It's a shrine to every artist's delusion that they're doing something revolutionary by painting a smear of undignified intent on a gray background.
 
-All content on this site is intended for educational use, helping visitors:
+> “I’m not here to make friends. I’m here to make meaning. And jokes.”  
 
-- Understand major art movements from 1960s to present
-- Discover key artists and their significant works
-- Explore the relationships between different artistic styles
-- Develop visual literacy and appreciation for contemporary art
 
-## Contact
+If you’re confused, you’re not alone. That’s the point.
+___
 
-For questions about the content or to report concerns, please reach out to us at alan@alanjust.com.
+Raised vegetarian, now an omnivore. Portrait painter. Package designer. Philosopher of flatwater kayakers and abandoned dreams. His work often sits somewhere between the sublime and WTF! — sometimes intentionally.
+
+He thinks in pictures but is cursed to explain them with words — a cosmic joke that makes every artist statement feel like describing color to someone who's never seen light.
+
+This site, *Artists Are Jerks*, is both a confession and a roast. A sandbox for mocking the ego-driven chaos of the art world while also participating in it — gleefully, hypocritically, earnestly.
+
+> “The message is the medium, and I mostly use sarcasm.”
+
+He currently lives in Southern Oregon, where forest fires, F-150's (pickup trucks) and weed are plentiful.

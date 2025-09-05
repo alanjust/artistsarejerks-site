@@ -1,22 +1,12 @@
 {{ define "main" }}
 <div class="movement-page">
-    <header class="movement-header">
-        <nav class="breadcrumb">
-            <a href="/art-wheel">Art Wheel</a> > 
-            <span>{{ .Title }}</span>
-        </nav>
-        <button class="btn-small" onclick="history.back()">Back</button>
-    </header>
-
     <div class="movement-content">
         <div class="movement-info">
             <h1 class="movement-title">{{ .Title }}</h1>
             <p class="movement-description">{{ .Params.description }}</p>
         </div>
 
-        <div class="movement-overview">
-            {{ .Content }}
-        </div>
+        {{ .Content }}
 
         <div class="featured-artists">
             <h2>Featured Artists</h2>
@@ -30,7 +20,7 @@
                             {{ $movementColor = index . "Bkgd Color" }}
                         {{ end }}
                     {{ end }}
-                    <div class="artist-card" style="background-color: {{ $movementColor }}">
+                    <div class="artist-card" {{ if $movementColor }}style="background-color: {{ $movementColor }}"{{ else }}style="background-color: #f8f9fa"{{ end }}>
                         <a href="{{ .RelPermalink }}" class="artist-link">
                             <div class="artist-card-header">
                                 <h3 class="artist-name">{{ .Title }}</h3>
@@ -52,30 +42,21 @@
 
 <style>
 .movement-page {
-    max-width: 1200px;
+    max-width: 780px;
     margin: 0 auto;
     padding: 20px;
     font-family: "Averia Sans Libre", sans-serif;
-}
-
-.movement-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 15px;
 }
 
 .breadcrumb {
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #666;
+    color: #111;
 }
 
 .breadcrumb a {
-    color: #e67e22; /* Orange to match theme */
+    color: #d35400; /* Orange to match theme */
     text-decoration: none;
 }
 
@@ -101,21 +82,13 @@
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
-    color: #666;
+    color: #111;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
-.movement-overview {
-    font-family: "Averia Sans Libre", sans-serif;
-    font-weight: 400;
-    background: #f8f9fa;
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    line-height: 1.7;
-}
+/* Removed .movement-overview styles */
 
 .movement-overview h2 {
     font-family: "Averia Sans Libre", sans-serif;
@@ -128,9 +101,10 @@
 .featured-artists h2 {
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 25px;
     color: #1a1a1a;
+    text-align: center;
 }
 
 .artists-grid {
@@ -143,7 +117,7 @@
     border-radius: 12px;
     padding: 20px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 3px solid #111;
 }
 
 .artist-card:hover {
@@ -166,14 +140,14 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 5px 0;
-    color: #e67e22;
+    color: #d35400;
 }
 
 .notable-work {
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 400;
     font-size: 0.9rem;
-    color: #666;
+    color: #111;
     margin: 0;
     font-style: italic;
 }
@@ -192,13 +166,20 @@
 }
 
 @media (max-width: 768px) {
-    .movement-header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
     .movement-title {
         font-size: 2rem;
+    }
+    
+    .movement-description {
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        white-space: normal !important;
+        display: block !important;
+        -webkit-line-clamp: unset !important;
+        -webkit-box-orient: unset !important;
+        line-clamp: unset !important;
     }
     
     .artists-grid {

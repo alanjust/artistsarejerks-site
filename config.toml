@@ -1,0 +1,72 @@
+baseURL = "https://artistsarejerks-site.pages.dev/"
+languageCode = "en-us"
+title = "Artists Are Jerks"
+theme = ""
+assetDir = "assets"
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "A playful roast of ego, hype, and half-baked art."
+
+[menu]
+
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "gallery"
+    name = "Gallery"
+    url = "/gallery/"
+    weight = 2
+
+    [[menu.main]]
+      parent = "gallery"
+      name = "Jerks in Your Area"
+      url = "/gallery/jerks/"
+      weight = 1
+
+    [[menu.main]]
+      parent = "gallery"
+      name = "Found Objects"
+      url = "/gallery/found/"
+      weight = 2
+
+    [[menu.main]]
+      parent = "gallery"
+      name = "Unfinished Works"
+      url = "/gallery/unfinished/"
+      weight = 3
+
+  [[menu.main]]
+    identifier = "art-wheel"
+    name = "Art Wheel"
+    url = "/art-wheel/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "art-education"
+    name = "Art Education"
+    url = "/art-education/"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "movements"
+    name = "Movements"
+    url = "/movements/"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "artists"
+    name = "Artists' Work"
+    url = "/artists/"
+    weight = 6
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 99

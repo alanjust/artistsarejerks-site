@@ -1,5 +1,5 @@
 ---
-title: "Artists"
+title: "Artists' Work"
 description: "Discover 95 influential artists and their groundbreaking works"
 layout: "list"
 ---

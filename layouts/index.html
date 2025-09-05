@@ -1,153 +1,19 @@
 {{ define "main" }}
-<div class="home-page">
-    <div class="two-column-layout">
-        <div class="image-column">
-            <img src="/images/artists-are-jerks-original.png" alt="Artists Are Jerks" />
-        </div>
-        
-        <div class="content-column">
-            <div class="text-content">
-                <p>Explore the art that broke free from Abstract Expressionism with our interactive Art History Wheel. Journey from the Pop Art reaction of the 1960s to today's diverse styles. Discover key movements and influential artists, each with a notable artwork example, tracing this exciting evolution.</p>
-                
-                <h2>What You'll Find Here:</h2>
-                <ul>
-                    <li><strong>Interactive Art Wheel</strong> - Spin through 19 major art movements</li>
-                    <li><strong>95+ Artist Profiles</strong> - From Warhol to contemporary creators</li>
-                    <li><strong>Movement Deep Dives</strong> - Understanding what came after Abstract Expressionism</li>
-                    <li><strong>Educational Resources</strong> - Art made accessible for the art curious</li>
-                </ul>
-            </div>
-            
-            <div class="cta-section">
-                <a href="/art-education" class="cta-button">Start Exploring Art Education →</a>
-            </div>
-        </div>
+<div class="homepage-container">
+  <div class="homepage-grid">
+    <div class="homepage-image">
+      <img src="/images/artists-are-jerks-original.png" alt="Artists Are Jerks - Alan Just Presents" class="homepage-poster">
     </div>
+    <div class="homepage-content">
+      <h2>Welcome to Artists Are Jerks</h2>
+      <p>This is a local test prototype of a satire-driven art and design site. Expect irreverence.</p>
+      <h2>Latest Rants</h2>
+      <ul>
+          {{ range first 5 (where .Site.RegularPages "Section" "rants") }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+      </ul>
+    </div>
+  </div>
 </div>
-
-<style>
-.home-page {
-    background-color: #fba92f;
-    color: white;
-    min-height: calc(100vh - 60px);
-    padding: 0;
-    margin: 0;
-    font-family: "Averia Sans Libre", sans-serif;
-    line-height: 1.6;
-}
-
-.two-column-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 40px;
-    padding: 50px 20px 40px 20px;
-}
-
-.image-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-column img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-.content-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.text-content {
-    margin-bottom: 40px;
-}
-
-.text-content p {
-    font-size: 1.1rem;
-    color: black;
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-.text-content h2 {
-    font-family: "Spicy Rice", serif;
-    font-size: 1.5rem;
-    color: #a0390d;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-
-.text-content ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.text-content li {
-    margin-bottom: 12px;
-    color: black;
-    font-size: 1rem;
-}
-
-.text-content li::marker {
-    color: black;
-}
-
-.text-content strong {
-    color: #a0390d;
-    font-weight: 600;
-}
-
-.cta-section {
-    margin-top: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    background: black;
-    color: #fba92f;
-    padding: 15px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.cta-button:hover {
-    background: #333;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    color: #fba92f;
-    text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    .two-column-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-    }
-    
-    .text-content p {
-        font-size: 1rem;
-    }
-    
-    .text-content h2 {
-        font-family: "Spicy Rice", serif;
-        font-size: 1.3rem;
-    }
-    
-    .cta-button {
-        padding: 12px 24px;
-        font-size: 1rem;
-    }
-}
-</style>
 {{ end }}

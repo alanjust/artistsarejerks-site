@@ -6,7 +6,7 @@ movement_name: "Postminimalism"
 artwork_title: 'Untitled (1967-1968) from his "Felt Pieces" series.'
 artwork_year: ""
 notable_artwork: "/images/artists/robert-morris-untitled-from-his-felt-pieces-series.jpg"
-background_color: "#cce7d5"
+background_color: "#4eb84e"
 website: "https://en.wikipedia.org/wiki/Robert_Morris_(artist)"
 birth: "February 9, 1931, Kansas City, Missouri, USA"
 death: "November 28, 2018, Kingston, New York, USA"

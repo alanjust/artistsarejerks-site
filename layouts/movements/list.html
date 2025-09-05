@@ -1,5 +1,4 @@
 {{ define "main" }}
-<div style="background: #fba92f; min-height: calc(100vh - 60px);">
 <div class="movements-page">
     <div class="page-header">
         <h1>Art Movements</h1>
@@ -40,7 +39,8 @@
         {{ range $movementOrder }}
             {{ $movement := index $movementsBySlug . }}
             {{ if $movement }}
-            <div class="movement-card" style="background-color: {{ $movement.Params.background_color | default "#f8f9fa" }}">
+            {{ $bgColor := $movement.Params.background_color | default "#f8f9fa" }}
+            <div class="movement-card" style="--bg-color: {{ $bgColor }};">
                 <a href="{{ $movement.RelPermalink }}" class="movement-link">
                     <h2 class="movement-title">{{ $movement.Title }}</h2>
                     <p class="movement-description">{{ $movement.Params.description }}</p>
@@ -67,143 +67,4 @@
         {{ end }}
     </div>
 </div>
-</div>
-
-<style>
-.movements-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.page-header h1 {
-    font-family: "Averia Sans Libre", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0 0 15px 0;
-    color: #1a1a1a;
-}
-
-.page-header p {
-    font-family: "Averia Sans Libre", sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.movements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-
-.movement-card {
-    border-radius: 12px;
-    padding: 25px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-}
-
-.movement-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.movement-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-}
-
-.movement-title {
-    font-family: "Averia Sans Libre", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 15px 0;
-    color: #1a1a1a;
-    word-wrap: break-word;
-    hyphens: auto;
-    line-height: 1.3;
-}
-
-.movement-description {
-    font-family: "Averia Sans Libre", sans-serif;
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.5;
-    margin: 0 0 20px 0;
-    flex-grow: 1;
-    word-wrap: break-word;
-    hyphens: auto;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
-
-.movement-artists {
-    margin-top: auto;
-    padding-top: 15px;
-    flex-shrink: 0;
-}
-
-.artist-name {
-    font-family: "Averia Sans Libre", sans-serif;
-    font-size: 0.85rem;
-    color: #666;
-    font-weight: 500;
-}
-
-@media (max-width: 768px) {
-    .page-header h1 {
-        font-size: 2rem;
-    }
-    
-    .movements-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .movement-card {
-        padding: 20px;
-        min-height: 180px;
-    }
-    
-    .movement-title {
-        font-size: 1.1rem;
-    }
-    
-    .movement-description {
-        font-size: 0.85rem;
-        -webkit-line-clamp: 3;
-    }
-}
-
-@media (max-width: 480px) {
-    .movements-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .movement-card {
-        padding: 18px;
-        min-height: 160px;
-    }
-}
-</style>
 {{ end }}

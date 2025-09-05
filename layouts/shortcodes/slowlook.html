@@ -1,0 +1,14 @@
+<div class="slowlook attn-card" data-duration="{{ with .Get " duration" }}{{ . }}{{ else }}120{{ end }}"
+  data-prompt='{{ with .Get "prompt" }}{{ . | htmlEscape }}{{ else }}Look until something you’d ignore becomes important.{{ end }}'>
+  <div class="attn-row attn-center">
+    <button class="sl-start">Start 2‑minute Look</button>
+    <div class="timer" aria-live="polite" title="remaining">02:00</div>
+  </div>
+  <p class="sl-prompt attn-center"></p>
+  <div class="sl-reflect attn-hidden">
+    <label for="sl-reflect-text">What changed for you?</label>
+    <textarea id="sl-reflect-text" placeholder="2–3 sentences…"></textarea>
+  </div>
+</div>
+{{ $slJS := resources.Get "js/attention/slow-look-timer.js" | minify | fingerprint }}
+<script defer src="{{ $slJS.RelPermalink }}" integrity="{{ $slJS.Data.Integrity }}" crossorigin="anonymous"></script>

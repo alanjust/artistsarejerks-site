@@ -1,0 +1,100 @@
+{
+  "title": "Ways to Look",
+  "items": [
+    {
+      "title": "Value",
+      "desc": "Ignore color. Track light/dark structure.",
+      "prompt": "Squint. Where is the darkest dark and lightest light?"
+    },
+    {
+      "title": "Edge",
+      "desc": "Hard vs soft transitions.",
+      "prompt": "Trace every edge\u2014where does it sharpen or blur?"
+    },
+    {
+      "title": "Shape",
+      "desc": "Silhouettes and negative forms.",
+      "prompt": "Name three shapes without naming objects."
+    },
+    {
+      "title": "Rhythm",
+      "desc": "Repetition + variation.",
+      "prompt": "Clap the piece\u2019s beat\u2014where does it syncopate?"
+    },
+    {
+      "title": "Pattern",
+      "desc": "Motifs across the field.",
+      "prompt": "Find a motif. How many times does it recur?"
+    },
+    {
+      "title": "Scale",
+      "desc": "Relative bigness and smallness.",
+      "prompt": "What would doubling the scale change?"
+    },
+    {
+      "title": "Texture",
+      "desc": "Surface qualities.",
+      "prompt": "Point to where your fingertips want to land."
+    },
+    {
+      "title": "Material",
+      "desc": "Stuff, not symbol.",
+      "prompt": "What is the material doing here?"
+    },
+    {
+      "title": "Process",
+      "desc": "How it was made shows.",
+      "prompt": "List the steps you can infer."
+    },
+    {
+      "title": "Color",
+      "desc": "Hue, chroma, temperature.",
+      "prompt": "Where does temperature flip (warm\u2192cool)?"
+    },
+    {
+      "title": "Space",
+      "desc": "Depth cues, overlaps, voids.",
+      "prompt": "Where does space collapse or expand?"
+    },
+    {
+      "title": "Gesture",
+      "desc": "Body trace in marks.",
+      "prompt": "Mimic the motion that made a mark."
+    },
+    {
+      "title": "Balance",
+      "desc": "Weights and pulls.",
+      "prompt": "If this were a mobile, what would tip it?"
+    },
+    {
+      "title": "Ambiguity",
+      "desc": "Multiple plausible reads.",
+      "prompt": "List two readings that both work."
+    },
+    {
+      "title": "Contrast",
+      "desc": "Any strong opposition.",
+      "prompt": "What is contrasted besides value?"
+    },
+    {
+      "title": "Metaphor",
+      "desc": "X as Y without words.",
+      "prompt": "Finish: \u2018This feels like\u2026\u2019"
+    },
+    {
+      "title": "Memory",
+      "desc": "Personal recall activated.",
+      "prompt": "What prior image does this wake up?"
+    },
+    {
+      "title": "Context",
+      "desc": "Where/when alters seeing.",
+      "prompt": "How would this read in a kitchen vs. museum?"
+    },
+    {
+      "title": "Time",
+      "desc": "Sequence, duration, aging.",
+      "prompt": "Where is time thickest?"
+    }
+  ]
+}

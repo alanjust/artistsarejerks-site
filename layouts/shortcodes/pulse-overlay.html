@@ -1,0 +1,77 @@
+{{- /* Reusable overlay pulse component */ -}}
+{{- $base := .Get "base" -}}
+{{- $overlay := .Get "overlay" -}}
+{{- $top := .Get "top" | default "72.6%" -}}
+{{- $left := .Get "left" | default "56%" -}}
+{{- $width := .Get "width" | default "58%" -}}
+{{- $duration := .Get "duration" | default "2.4s" -}}
+{{- $scale := .Get "scale" | default "1.224" -}}
+{{- $easing := .Get "easing" | default "cubic-bezier(0.37, 0, 0.63, 1)" -}}
+{{- $aspect := .Get "aspect" | default "368.9/699.1" -}}
+
+{{- /* Inject CSS once per page */ -}}
+{{- if not (.Page.Scratch.Get "pulse_overlay_css_injected") -}}
+<style>
+    .po-wrap {
+        position: relative;
+        display: inline-block;
+        aspect-ratio: var(--po-aspect, 368.9/699.1);
+        width: min(90vw, calc(90vh*var(--po-aspect, 368.9/699.1)));
+        max-width: 90vw;
+        max-height: 90vh;
+        margin: 0 auto
+    }
+
+    .po-base {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 90vh
+    }
+
+    .po-overlay {
+        position: absolute;
+        top: var(--overlay-top, 50%);
+        left: var(--overlay-left, 50%);
+        width: var(--overlay-width, 40%);
+        height: auto;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transform-origin: center center;
+        z-index: 2;
+        will-change: transform;
+        backface-visibility: hidden
+    }
+
+    .po-pulse {
+        animation: po-pulse var(--po-duration, 2.4s) var(--po-easing, cubic-bezier(0.37, 0, 0.63, 1)) infinite
+    }
+
+    @keyframes po-pulse {
+
+        0%,
+        100% {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        50% {
+            transform: translate(-50%, -50%) scale(var(--po-scale, 1.224))
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .po-pulse {
+            animation: none
+        }
+    }
+</style>
+{{- .Page.Scratch.Set "pulse_overlay_css_injected" true -}}
+{{- end -}}
+
+<div class="po-wrap"
+    style="--overlay-top:{{$top}}; --overlay-left:{{$left}}; --overlay-width:{{$width}}; --po-duration:{{$duration}}; --po-scale:{{$scale}}; --po-easing:{{$easing}}; --po-aspect:{{$aspect}};">
+    <img class="po-base" src="{{$base | safeURL}}" alt="Overlay base">
+    <img class="po-overlay po-pulse" src="{{$overlay | safeURL}}" alt="Overlay pulsing">
+    {{- /* Note: base remains static; overlay pulses. */ -}}
+    {{- /* Adjust top/left/width/duration/scale/easing/aspect via shortcode params. */ -}}
+</div>

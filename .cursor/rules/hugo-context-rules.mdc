@@ -1,0 +1,15 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+HUGO CONTEXT RULES
+- Plan-then-act: propose a 3–5 step plan; wait for my OK before code.
+- Output unified diffs with explicit file paths for every change.
+- Respect file boundaries I name; don't touch others without approval.
+- Prefer minimal, incremental patches; call out possible side effects.
+- Ask before inventing Hugo variables/functions; cite the file/line you rely on.
+- Keep tokens lean: consider ONLY the Working Set I provide unless I say otherwise.
+- When uncertain, stop and ask for the exact file/lines you need.
+- Use American English spelling and style.
+- Test locally after each change: hugo server -D --disableFastRender

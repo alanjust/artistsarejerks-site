@@ -1,0 +1,19 @@
+<div class="mis attn-card" data-src="{{ .Get " src" }}" data-mode="{{ with .Get " mode" }}{{ . }}{{ else }}value{{ end
+  }}">
+  <div class="controls">
+    <label>Mode:
+      <select class="mis-mode">
+        <option value="value">Value‑only</option>
+        <option value="posterize">Posterize</option>
+        <option value="edges">Edges</option>
+        <option value="original">Original</option>
+      </select>
+    </label>
+    <label>Intensity <input class="mis-int" type="range" min="1" max="12" value="6"></label>
+  </div>
+  <canvas class="mis-canvas" aria-label="transformed image"></canvas>
+  <img class="mis-img attn-hidden" alt="source" src="{{ .Get " src" }}" />
+  <p class="hint attn-center">Slide intensity; switch modes; describe what becomes clearer vs. what disappears.</p>
+</div>
+{{ $misJS := resources.Get "js/attention/make-it-strange.js" | minify | fingerprint }}
+<script defer src="{{ $misJS.RelPermalink }}" integrity="{{ $misJS.Data.Integrity }}" crossorigin="anonymous"></script>

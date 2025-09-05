@@ -1,31 +1,24 @@
 {{ define "main" }}
 <div class="artist-page">
-    <header class="artist-header">
-        <nav class="breadcrumb">
-            <a href="/art-wheel">Art Wheel</a> > 
-            <a href="/movements/{{ .Params.movement }}">{{ .Params.movement | title | replace "-" " " }}</a> > 
-            <span>{{ .Title }}</span>
-        </nav>
-        <button class="btn-small" onclick="history.back()">Back</button>
-    </header>
+
 
     <div class="artist-content">
         <div class="artist-info">
             <h1 class="artist-name">{{ .Title }}</h1>
-            {{ $movementColor := "#cce7d5" }}
+            {{ $movementColor := "#4eb84e" }}
             {{ range $.Site.Data.art_history_movements }}
                 {{ if eq .Slug $.Params.movement }}
                     {{ $movementColor = index . "Bkgd Color" }}
                 {{ end }}
             {{ end }}
-            <h2 class="movement-name" style="color: {{ $movementColor }}">
-                {{ .Params.movement | title | replace "-" " " }}
-            </h2>
             <div class="artist-links">
                 {{ if .Params.website }}
                 <a href="{{ .Params.website }}" target="_blank" class="external-link">{{ .Params.website }}</a>
                 {{ end }}
             </div>
+            <h2 class="movement-name" style="color: {{ $movementColor }}">
+                <a href="/movements/" style="color: inherit; text-decoration: none;">{{ .Params.movement_name | default (.Params.movement | title | replace "-" " ") }}</a>
+            </h2>
         </div>
 
         <div class="artist-details">
@@ -72,7 +65,7 @@
 
 <style>
 .artist-page {
-    max-width: 1200px;
+    max-width: 780px;
     margin: 0 auto;
     padding: 20px;
     font-family: "Averia Sans Libre", sans-serif;
@@ -91,11 +84,11 @@
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #666;
+    color: #111;
 }
 
 .breadcrumb a {
-    color: #e67e22; /* Orange to match theme */
+    color: #d35400; /* Orange to match theme */
     text-decoration: none;
 }
 
@@ -106,32 +99,33 @@
 
 .artist-content {
     display: grid;
-    gap: 40px;
+    gap: 20px;
 }
 
 .artist-info {
     text-align: center;
+    margin-bottom: 0;
 }
 
 .artist-name {
     font-family: "Averia Sans Libre", sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    margin: 0 0 10px 0;
+    margin: 0 0 0px 0;
     color: #1a1a1a;
 }
 
 .movement-name {
     font-family: "Averia Sans Libre", sans-serif;
-    font-size: 1.25rem;
-    margin: 0 0 20px 0;
+    font-size: 1.75rem;
+    margin: 20 0 0 0;
     font-weight: 600;
 }
 
 .external-link {
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 400;
-    color: #e67e22; /* Orange to match theme */
+    color: #d35400; /* Orange to match theme */
     text-decoration: none;
     font-size: 14px;
 }
@@ -142,9 +136,6 @@
 }
 
 .artist-details {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 12px;
 }
 
 .artist-bio p {
@@ -158,19 +149,20 @@
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 400;
     font-style: italic;
-    border-left: 4px solid #e67e22; /* Orange to match theme */
+    border-left: 4px solid #d35400; /* Orange to match theme */
     padding-left: 20px;
     margin: 20px 0;
     font-size: 1.1rem;
-    color: #444;
+    color: #247671;
 }
 
 .notable-artwork h3 {
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 600;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin: 0 0 30px 0;
     color: #1a1a1a;
+    text-align: center;
 }
 
 .artwork-display {
@@ -191,8 +183,8 @@
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
-    color: #e67e22;
-    margin-bottom: 15px;
+    color: #d35400;
+    margin: 0 0 15px 0;
 }
 
 .artwork-content {

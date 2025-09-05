@@ -1,5 +1,6 @@
-+++
-date = '2025-07-17T14:55:37-07:00'
-draft = false
-title = 'Artists Are Jerks'
-+++
+---
+title: "Home"
+layout: home
+---
+
+Welcome to **Artists Are Jerks** — a rolling catalog of big ideas, bad manners, and the occasional cosmic giggle.
