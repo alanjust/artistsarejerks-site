@@ -18,34 +18,22 @@ assetDir = "assets"
     weight = 1
 
   [[menu.main]]
-    identifier = "gallery"
-    name = "Gallery"
-    url = "/gallery/"
-    weight = 2
-
-    [[menu.main]]
-      parent = "gallery"
-      name = "Jerks in Your Area"
-      url = "/gallery/jerks/"
-      weight = 1
-
-    [[menu.main]]
-      parent = "gallery"
-      name = "Found Objects"
-      url = "/gallery/found/"
-      weight = 2
-
-    [[menu.main]]
-      parent = "gallery"
-      name = "Unfinished Works"
-      url = "/gallery/unfinished/"
-      weight = 3
-
-  [[menu.main]]
     identifier = "art-wheel"
     name = "Art Wheel"
     url = "/art-wheel/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "lab"
+    name = "Lab"
+    url = "/lab/"
     weight = 3
+
+    [[menu.main]]
+      parent = "lab"
+      name = "Aesthetic Break #1"
+      url = "/lab/aesthetic-break-01/"
+      weight = 1
 
   [[menu.main]]
     identifier = "art-education"

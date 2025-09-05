@@ -2,273 +2,273 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://0.0.0.0:1313/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/gallery/found/</loc>
+    <loc>http://localhost:1313/gallery/found/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/gallery/</loc>
+    <loc>http://localhost:1313/gallery/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/gallery/jerks/</loc>
+    <loc>http://localhost:1313/gallery/jerks/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/rants/</loc>
+    <loc>http://localhost:1313/rants/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/rants/blank-canvas-is-complete/</loc>
+    <loc>http://localhost:1313/rants/blank-canvas-is-complete/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/gallery/unfinished/</loc>
+    <loc>http://localhost:1313/gallery/unfinished/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/art-wheel/</loc>
+    <loc>http://localhost:1313/art-wheel/</loc>
     <lastmod>2025-07-17T14:55:37-07:00</lastmod>
   </url><url>
-    <loc>http://0.0.0.0:1313/lab/aesthetic-break-01/</loc>
+    <loc>http://localhost:1313/lab/aesthetic-break-01/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/agnes-martin/</loc>
+    <loc>http://localhost:1313/artists/agnes-martin/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/ai-and-algorithmic-art/</loc>
+    <loc>http://localhost:1313/movements/ai-and-algorithmic-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/ai-weiwei/</loc>
+    <loc>http://localhost:1313/artists/ai-weiwei/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/amalia-ulman/</loc>
+    <loc>http://localhost:1313/artists/amalia-ulman/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/andy-warhol/</loc>
+    <loc>http://localhost:1313/artists/andy-warhol/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/anselm-kiefer/</loc>
+    <loc>http://localhost:1313/artists/anselm-kiefer/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/appropriation-art/</loc>
+    <loc>http://localhost:1313/movements/appropriation-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/art-education/</loc>
+    <loc>http://localhost:1313/art-education/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/</loc>
+    <loc>http://localhost:1313/movements/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/</loc>
+    <loc>http://localhost:1313/artists/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/audrey-flack/</loc>
+    <loc>http://localhost:1313/artists/audrey-flack/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/banksy/</loc>
+    <loc>http://localhost:1313/artists/banksy/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/barbara-kruger/</loc>
+    <loc>http://localhost:1313/artists/barbara-kruger/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/bio-art/</loc>
+    <loc>http://localhost:1313/movements/bio-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/brian-jungen/</loc>
+    <loc>http://localhost:1313/artists/brian-jungen/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/brook-andrew/</loc>
+    <loc>http://localhost:1313/artists/brook-andrew/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/bruce-nauman/</loc>
+    <loc>http://localhost:1313/artists/bruce-nauman/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/carl-andre/</loc>
+    <loc>http://localhost:1313/artists/carl-andre/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/carolee-schneemann/</loc>
+    <loc>http://localhost:1313/artists/carolee-schneemann/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/chris-burden/</loc>
+    <loc>http://localhost:1313/artists/chris-burden/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/chris-ofili/</loc>
+    <loc>http://localhost:1313/artists/chris-ofili/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/christo-and-jeanne-claude/</loc>
+    <loc>http://localhost:1313/artists/christo-and-jeanne-claude/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/chuck-close/</loc>
+    <loc>http://localhost:1313/artists/chuck-close/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/cindy-sherman/</loc>
+    <loc>http://localhost:1313/artists/cindy-sherman/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/claes-oldenburg/</loc>
+    <loc>http://localhost:1313/artists/claes-oldenburg/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/conceptual-art/</loc>
+    <loc>http://localhost:1313/movements/conceptual-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/contemporary-indigenous-art/</loc>
+    <loc>http://localhost:1313/movements/contemporary-indigenous-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/cory-arcangel/</loc>
+    <loc>http://localhost:1313/artists/cory-arcangel/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/damien-hirst/</loc>
+    <loc>http://localhost:1313/artists/damien-hirst/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/dan-flavin/</loc>
+    <loc>http://localhost:1313/artists/dan-flavin/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/digital-art-new-media-art/</loc>
+    <loc>http://localhost:1313/movements/digital-art-new-media-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/donald-judd/</loc>
+    <loc>http://localhost:1313/artists/donald-judd/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/eduardo-kac/</loc>
+    <loc>http://localhost:1313/artists/eduardo-kac/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/eva-hesse/</loc>
+    <loc>http://localhost:1313/artists/eva-hesse/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/francesco-clemente/</loc>
+    <loc>http://localhost:1313/artists/francesco-clemente/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/gary-hume/</loc>
+    <loc>http://localhost:1313/artists/gary-hume/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/georg-baselitz/</loc>
+    <loc>http://localhost:1313/artists/georg-baselitz/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/hanne-darboven/</loc>
+    <loc>http://localhost:1313/artists/hanne-darboven/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/helena-sarin/</loc>
+    <loc>http://localhost:1313/artists/helena-sarin/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/hito-steyerl/</loc>
+    <loc>http://localhost:1313/artists/hito-steyerl/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/installation-art/</loc>
+    <loc>http://localhost:1313/movements/installation-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/james-luna/</loc>
+    <loc>http://localhost:1313/artists/james-luna/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/james-rosenquist/</loc>
+    <loc>http://localhost:1313/artists/james-rosenquist/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/james-turrell/</loc>
+    <loc>http://localhost:1313/artists/james-turrell/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/jean-michel-basquiat-ebd2e/</loc>
+    <loc>http://localhost:1313/artists/jean-michel-basquiat-ebd2e/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/jean-michel-basquiat/</loc>
+    <loc>http://localhost:1313/artists/jean-michel-basquiat/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/jeanne-van-heeswijk/</loc>
+    <loc>http://localhost:1313/artists/jeanne-van-heeswijk/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/jeff-koons/</loc>
+    <loc>http://localhost:1313/artists/jeff-koons/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/john-baldessari/</loc>
+    <loc>http://localhost:1313/artists/john-baldessari/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/jon-rafman/</loc>
+    <loc>http://localhost:1313/artists/jon-rafman/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/joseph-kosuth/</loc>
+    <loc>http://localhost:1313/artists/joseph-kosuth/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/julian-schnabel/</loc>
+    <loc>http://localhost:1313/artists/julian-schnabel/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/keith-haring/</loc>
+    <loc>http://localhost:1313/artists/keith-haring/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/kent-monkman/</loc>
+    <loc>http://localhost:1313/artists/kent-monkman/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/lab/</loc>
+    <loc>http://localhost:1313/lab/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/lady-pink/</loc>
+    <loc>http://localhost:1313/artists/lady-pink/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/land-art-earthworks/</loc>
+    <loc>http://localhost:1313/movements/land-art-earthworks/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/lawrence-weiner/</loc>
+    <loc>http://localhost:1313/artists/lawrence-weiner/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/liam-gillick/</loc>
+    <loc>http://localhost:1313/artists/liam-gillick/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/louise-bourgeois/</loc>
+    <loc>http://localhost:1313/artists/louise-bourgeois/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/lynda-benglis/</loc>
+    <loc>http://localhost:1313/artists/lynda-benglis/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/lynn-hershman-leeson/</loc>
+    <loc>http://localhost:1313/artists/lynn-hershman-leeson/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/marina-abramovic/</loc>
+    <loc>http://localhost:1313/artists/marina-abramovic/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/mario-klingemann/</loc>
+    <loc>http://localhost:1313/artists/mario-klingemann/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/marta-de-menezes/</loc>
+    <loc>http://localhost:1313/artists/marta-de-menezes/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/memo-akten/</loc>
+    <loc>http://localhost:1313/artists/memo-akten/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/michael-heizer/</loc>
+    <loc>http://localhost:1313/artists/michael-heizer/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/minimalism/</loc>
+    <loc>http://localhost:1313/movements/minimalism/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/nam-june-paik/</loc>
+    <loc>http://localhost:1313/artists/nam-june-paik/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/nancy-holt/</loc>
+    <loc>http://localhost:1313/artists/nancy-holt/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/neo-expressionism/</loc>
+    <loc>http://localhost:1313/movements/neo-expressionism/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/olafur-eliasson/</loc>
+    <loc>http://localhost:1313/artists/olafur-eliasson/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/olia-lialina/</loc>
+    <loc>http://localhost:1313/artists/olia-lialina/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/performance-art/</loc>
+    <loc>http://localhost:1313/movements/performance-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/petra-cortright/</loc>
+    <loc>http://localhost:1313/artists/petra-cortright/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/philippe-parreno/</loc>
+    <loc>http://localhost:1313/artists/philippe-parreno/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/photorealism/</loc>
+    <loc>http://localhost:1313/movements/photorealism/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/pierre-huyghe/</loc>
+    <loc>http://localhost:1313/artists/pierre-huyghe/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/pop-art/</loc>
+    <loc>http://localhost:1313/movements/pop-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/post-internet-art/</loc>
+    <loc>http://localhost:1313/movements/post-internet-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/postminimalism/</loc>
+    <loc>http://localhost:1313/movements/postminimalism/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/rafael-lozano-hemmer/</loc>
+    <loc>http://localhost:1313/artists/rafael-lozano-hemmer/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/ralph-goings/</loc>
+    <loc>http://localhost:1313/artists/ralph-goings/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/rebecca-belmore/</loc>
+    <loc>http://localhost:1313/artists/rebecca-belmore/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/refik-anadol/</loc>
+    <loc>http://localhost:1313/artists/refik-anadol/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/relational-aesthetics/</loc>
+    <loc>http://localhost:1313/movements/relational-aesthetics/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/richard-estes/</loc>
+    <loc>http://localhost:1313/artists/richard-estes/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/richard-prince/</loc>
+    <loc>http://localhost:1313/artists/richard-prince/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/richard-serra/</loc>
+    <loc>http://localhost:1313/artists/richard-serra/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/rick-lowe/</loc>
+    <loc>http://localhost:1313/artists/rick-lowe/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/rirkrit-tiravanija/</loc>
+    <loc>http://localhost:1313/artists/rirkrit-tiravanija/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/robert-bechtle/</loc>
+    <loc>http://localhost:1313/artists/robert-bechtle/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/robert-morris/</loc>
+    <loc>http://localhost:1313/artists/robert-morris/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/robert-smithson/</loc>
+    <loc>http://localhost:1313/artists/robert-smithson/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/roy-lichtenstein/</loc>
+    <loc>http://localhost:1313/artists/roy-lichtenstein/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/ryan-trecartin/</loc>
+    <loc>http://localhost:1313/artists/ryan-trecartin/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/sarah-lucas/</loc>
+    <loc>http://localhost:1313/artists/sarah-lucas/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/shepard-fairey/</loc>
+    <loc>http://localhost:1313/artists/shepard-fairey/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/sherrie-levine/</loc>
+    <loc>http://localhost:1313/artists/sherrie-levine/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/social-practice-art/</loc>
+    <loc>http://localhost:1313/movements/social-practice-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/sol-lewitt-62a64/</loc>
+    <loc>http://localhost:1313/artists/sol-lewitt-62a64/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/sol-lewitt/</loc>
+    <loc>http://localhost:1313/artists/sol-lewitt/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/sougwen-chung/</loc>
+    <loc>http://localhost:1313/artists/sougwen-chung/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/stelarc/</loc>
+    <loc>http://localhost:1313/artists/stelarc/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/street-art-graffiti-art/</loc>
+    <loc>http://localhost:1313/movements/street-art-graffiti-art/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/suzanne-anker/</loc>
+    <loc>http://localhost:1313/artists/suzanne-anker/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/suzanne-lacy/</loc>
+    <loc>http://localhost:1313/artists/suzanne-lacy/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/tania-bruguera/</loc>
+    <loc>http://localhost:1313/artists/tania-bruguera/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/theaster-gates/</loc>
+    <loc>http://localhost:1313/artists/theaster-gates/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/tissue-culture-art-project-oron-catts-ionat-zurr/</loc>
+    <loc>http://localhost:1313/artists/tissue-culture-art-project-oron-catts-ionat-zurr/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/tom-wesselmann/</loc>
+    <loc>http://localhost:1313/artists/tom-wesselmann/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/tracey-emin/</loc>
+    <loc>http://localhost:1313/artists/tracey-emin/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/vanessa-beecroft/</loc>
+    <loc>http://localhost:1313/artists/vanessa-beecroft/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/vito-acconci/</loc>
+    <loc>http://localhost:1313/artists/vito-acconci/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/walter-de-maria/</loc>
+    <loc>http://localhost:1313/artists/walter-de-maria/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/yayoi-kusama/</loc>
+    <loc>http://localhost:1313/artists/yayoi-kusama/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/artists/yoko-ono/</loc>
+    <loc>http://localhost:1313/artists/yoko-ono/</loc>
   </url><url>
-    <loc>http://0.0.0.0:1313/movements/young-british-artists-ybas/</loc>
+    <loc>http://localhost:1313/movements/young-british-artists-ybas/</loc>
   </url>
 </urlset>
