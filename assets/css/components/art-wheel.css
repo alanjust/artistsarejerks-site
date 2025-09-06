@@ -41,6 +41,8 @@
 .art-wheel-section {
   position: relative;
   flex-shrink: 0;
+  touch-action: none;
+  -webkit-touch-callout: none;
 }
 
 /* ========================================
@@ -97,6 +99,9 @@
   width: 600px;
   height: 600px;
   margin: 0 auto;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 .art-wheel {
@@ -109,6 +114,11 @@
   cursor: grab;
   transition: transform .3s ease-out;
   user-select: none;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .art-wheel:active {

@@ -279,6 +279,10 @@ document.addEventListener('DOMContentLoaded', function () {
     try { wheel.releasePointerCapture(e.pointerId); } catch (_) { }
     document.body.style.userSelect = "";
     wheel.style.cursor = "grab";
+    
+    // Re-enable page scrolling
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
 
     let v = velocity; // deg/sec
     const friction = 0.95;
@@ -297,6 +301,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   wheel.addEventListener('pointerdown', function (e) {
+    // Prevent default touch behaviors that cause page scrolling
+    e.preventDefault();
+    
     // Sync with any external rotation changes done via rotateWheel()
     rotation = parseFloat(wheel.dataset.rotation || '0') || 0;
     if (inertiaFrame) { cancelAnimationFrame(inertiaFrame); inertiaFrame = null; }
@@ -308,10 +315,18 @@ document.addEventListener('DOMContentLoaded', function () {
     velocity = 0;
     wheel.style.cursor = "grabbing";
     document.body.style.userSelect = "none";
+    
+    // Disable page scrolling during wheel interaction
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
   });
 
   wheel.addEventListener('pointermove', function (e) {
     if (!dragging) return;
+    
+    // Prevent default touch behaviors during dragging
+    e.preventDefault();
+    
     const rect = wheel.getBoundingClientRect();
     const a = angleFromEvent(e, rect);
     let delta = a - lastAngle;
@@ -328,6 +343,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   wheel.addEventListener('pointerup', endDragWithInertia);
   wheel.addEventListener('pointercancel', endDragWithInertia);
+  
+  // Additional touch event prevention for better mobile support
+  wheel.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  wheel.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  wheel.addEventListener('touchend', function(e) {
+    e.preventDefault();
+  }, { passive: false });
 
   // Add click handler for artwork section to navigate to artist page
   const artworkSection = document.getElementById("artworkSection");

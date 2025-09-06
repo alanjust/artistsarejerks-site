@@ -96,11 +96,23 @@
                 return norm(a);
             }
             svg.addEventListener('pointerdown', (e) => {
+                // Prevent default touch behaviors that cause page scrolling
+                e.preventDefault();
+                
                 dragging = true; svg.setPointerCapture(e.pointerId);
                 lastA = angleFromEvent(e); lastTs = e.timeStamp; velocity = 0;
+                
+                // Disable page scrolling during wheel interaction
+                document.body.style.overflow = "hidden";
+                document.documentElement.style.overflow = "hidden";
+                document.body.style.userSelect = "none";
             });
             svg.addEventListener('pointermove', (e) => {
                 if (!dragging) return;
+                
+                // Prevent default touch behaviors during dragging
+                e.preventDefault();
+                
                 const a = angleFromEvent(e);
                 let delta = a - lastA; if (delta > 180) delta -= 360; if (delta < -180) delta += 360;
                 setRotation(rotation + delta);
@@ -108,7 +120,15 @@
                 lastA = a; lastTs = e.timeStamp;
             });
             function endDrag(e) {
-                if (!dragging) return; dragging = false; try { svg.releasePointerCapture(e.pointerId); } catch (_) {/*noop*/ }
+                if (!dragging) return; 
+                dragging = false; 
+                try { svg.releasePointerCapture(e.pointerId); } catch (_) {/*noop*/ }
+                
+                // Re-enable page scrolling
+                document.body.style.overflow = "";
+                document.documentElement.style.overflow = "";
+                document.body.style.userSelect = "";
+                
                 let v = velocity; const friction = 0.95;
                 function tick() {
                     if (Math.abs(v) < 5) { setRotation(Math.round(rotation / step) * step); return; }
@@ -118,6 +138,19 @@
             }
             svg.addEventListener('pointerup', endDrag);
             svg.addEventListener('pointercancel', endDrag);
+            
+            // Additional touch event prevention for better mobile support
+            svg.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+            
+            svg.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+            
+            svg.addEventListener('touchend', function(e) {
+                e.preventDefault();
+            }, { passive: false });
 
             setRotation(0);
         });

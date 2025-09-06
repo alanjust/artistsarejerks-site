@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Explaining Your Art (While You&#39;re Making It)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Spicy+Rice&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.min.9af5a3cb255cbaa784d949ccb2704d39c0ab08aa7ea6f42528bc77fe2c371ae9.css" integrity="sha256-mvWjyyVcuqeE2UnMsnBNOcCrCKp&#43;pvQlKLx3/iw3Guk="
+        crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/css/attention.min.cd2666a3570e2f50ef0a63ef99076c084b213edd65ec4ca6397bf11a914a98e0.css" integrity="sha256-zSZmo1cOL1DvCmPvmQdsCEshPt1l7EymOXvxGpFKmOA="
+        crossorigin="anonymous">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <meta name="theme-color" content="#111418">
+
+    
+    
+</head>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/assets/js/sw.js'));
+    }
+</script>
+
+
+<body>
+    <button onclick="window.history.back()"
+    style="position: fixed; top: 1.2rem; left: 1.2rem; background: none; border: none; padding: 0; z-index: 1000; cursor: pointer;">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L10 14L18 22" stroke="#58e003" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+</button>
+<header>
+    <h1>Artists Are Jerks</h1>
+</header>
+
+<nav>
+    <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul id="main-menu">
+        
+        <li>
+            <a href="/" aria-haspopup="false">Home</a>
+            
+        </li>
+        
+        <li>
+            <a href="/art-wheel/" aria-haspopup="false">Art Wheel</a>
+            
+        </li>
+        
+        <li>
+            <a href="/lab/" aria-haspopup="true">Lab</a>
+            
+            <ul>
+                
+                <li><a href="/lab/aesthetic-break-01/">Aesthetic Break #1</a></li>
+                
+            </ul>
+            
+        </li>
+        
+        <li>
+            <a href="/art-education/" aria-haspopup="false">Art Education</a>
+            
+        </li>
+        
+        <li>
+            <a href="/movements/" aria-haspopup="false">Movements</a>
+            
+        </li>
+        
+        <li>
+            <a href="/artists/" aria-haspopup="false">Artists&#39; Work</a>
+            
+        </li>
+        
+        <li>
+            <a href="/about/" aria-haspopup="false">About</a>
+            
+        </li>
+        
+    </ul>
+</nav>
+
+    <main>
+        
+<div class="main-content-container">
+  <h2>Stop Explaining Your Art (While You&#39;re Making It)</h2>
+  <h1 id="stop-explaining-your-art-while-youre-making-it">Stop Explaining Your Art (While You&rsquo;re Making It)</h1>
+<p>I&rsquo;m in my studio, three hours deep in a painting that&rsquo;s finally starting to talk back to me, when someone walks in and immediately asks: &ldquo;What&rsquo;s it supposed to be?&rdquo;</p>
+<p><strong>SUPPOSED to be?</strong></p>
+<p>Listen, if I knew what it was supposed to be, I&rsquo;d just take a photograph and save myself the paint. The whole point is that I&rsquo;m having a conversation with the thing, and conversations - good ones anyway - involve surprises.</p>
+<p>But here&rsquo;s what really gets me: the assumption that I should have a elevator pitch ready for work that&rsquo;s still wet. Like somehow my painting becomes more legitimate if I can wrap it in words before the brush is even clean.</p>
+<p>You know what Temple Grandin says about thinking in pictures? That&rsquo;s what&rsquo;s happening here. I&rsquo;m solving visual problems that don&rsquo;t have verbal equivalents yet. When someone demands an explanation mid-process, they&rsquo;re essentially asking me to translate a dream while I&rsquo;m still dreaming it.</p>
+<p>And don&rsquo;t get me started on the people who nod knowingly when I say &ldquo;I don&rsquo;t know yet&rdquo; and then reply with &ldquo;Oh, so it&rsquo;s <em>abstract</em>.&rdquo; No, Karen. It&rsquo;s not abstract. It&rsquo;s specific as hell - it&rsquo;s just specific to something your word-brain hasn&rsquo;t catalogued yet.</p>
+<p>Here&rsquo;s the deal: meaning isn&rsquo;t a message I hide in the painting like some Easter egg. It&rsquo;s what happens when your eyes and my surfaces have their own little chat. Your brain will figure out what it needs to figure out, and it&rsquo;ll be more interesting than anything I could tell you anyway.</p>
+<p>So next time you see an artist working, maybe try this: look first, talk later. Trust me, the painting has more to say than I do.</p>
+
+</div>
+
+    </main>
+
+    <footer>
+    <div>Built with appropriated pixels &amp; strong coffee.</div>
+    <div>Copyright © 2025 Artists Are Jerks. All rights reserved.</div>
+</footer>
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("main-menu");
+
+    toggle && toggle.addEventListener("click", () => {
+        menu && menu.classList.toggle("show");
+    });
+
+    const linksWithChildren = document.querySelectorAll("nav li > a[aria-haspopup='true']");
+
+    linksWithChildren.forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (window.innerWidth <= 768) {
+                const parent = this.parentElement;
+                parent && parent.classList.toggle("open");
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

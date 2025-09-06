@@ -17,11 +17,138 @@
 .mis .controls { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin:.5rem 0; }
 
 /* Art Wheel */
-.artwheel { max-width: 780px; margin: 1rem auto; }
-.artwheel .panel { margin-top: .75rem; }
-.artwheel .wheel-wrap { display:grid; place-items:center; }
-.artwheel .wheel-btns { display:flex; gap:.5rem; justify-content:center; margin:.5rem 0; }
-.artwheel button { padding: .45rem .8rem; border-radius: 10px; border: 1px solid #ccc; cursor: pointer; }
+.artwheel { 
+  max-width: 780px; 
+  margin: 1rem auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.artwheel .panel { margin-top: .75rem; max-width: 600px; }
+.artwheel .wheel-wrap { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.artwheel .wheel-btns { 
+  display: flex; 
+  gap: .5rem; 
+  justify-content: center; 
+  margin: .5rem 0;
+  width: 100%;
+}
+.artwheel button { 
+  padding: .45rem .8rem; 
+  border-radius: 10px; 
+  border: 1px solid #ccc; 
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s ease;
+}
+.artwheel button:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
 /* Interaction affordances */
-.artwheel .wheel { touch-action: none; cursor: grab; user-select: none; }
+.artwheel .wheel { 
+  touch-action: none; 
+  cursor: grab; 
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  display: block;
+  margin: 0 auto;
+}
 .artwheel .wheel:active { cursor: grabbing; }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .artwheel {
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    max-width: 95vw;
+  }
+  
+  .artwheel .wheel {
+    width: min(280px, 85vw) !important;
+    height: min(280px, 85vw) !important;
+    max-width: 280px;
+    max-height: 280px;
+  }
+  
+  .artwheel .wheel-btns {
+    margin: 1rem 0 0.5rem 0;
+    gap: 1rem;
+  }
+  
+  .artwheel button {
+    min-width: 80px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .artwheel .panel {
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .artwheel {
+    margin: 0.25rem auto;
+    padding: 0.25rem;
+  }
+  
+  .artwheel .wheel {
+    width: min(240px, 80vw) !important;
+    height: min(240px, 80vw) !important;
+    max-width: 240px;
+    max-height: 240px;
+  }
+  
+  .artwheel .wheel-btns {
+    gap: 0.75rem;
+    margin: 0.75rem 0 0.5rem 0;
+  }
+  
+  .artwheel button {
+    min-width: 70px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .artwheel .panel {
+    margin-top: 0.75rem;
+    max-width: 95vw;
+  }
+  
+  .artwheel .aw-title {
+    font-size: 1.1rem;
+  }
+  
+  .artwheel .aw-desc {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .artwheel .wheel {
+    width: min(200px, 75vw) !important;
+    height: min(200px, 75vw) !important;
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .artwheel button {
+    min-width: 60px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
