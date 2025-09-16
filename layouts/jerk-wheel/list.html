@@ -1,0 +1,326 @@
+{{ define "main" }}
+<div class="jerk-wheel-container">
+    <div class="jerk-intro">
+        <div class="intro-content">
+            {{ .Content }}
+        </div>
+    </div>
+    
+    <!-- Placeholder for Interactive Jerk Wheel -->
+    <div class="wheel-container">
+        <div class="wheel-placeholder">
+            <div class="wheel-mock">
+                <div class="wheel-half good-jerks">
+                    <h3>Good Jerks</h3>
+                    <div class="spoke" data-archetype="refusal">Refusal Artists</div>
+                    <div class="spoke" data-archetype="disruption">Disruption Artists</div>
+                    <div class="spoke" data-archetype="standards">Standards Artists</div>
+                    <div class="spoke" data-archetype="time">Time Artists</div>
+                    <div class="spoke" data-archetype="truth">Truth Artists</div>
+                </div>
+                <div class="wheel-center">
+                    <h2>Artists Are Jerks</h2>
+                    <p>Good jerks transform.<br>Bad jerks exploit.</p>
+                </div>
+                <div class="wheel-half bad-jerks">
+                    <h3>Bad Jerks</h3>
+                    <div class="spoke" data-archetype="predator">Predators</div>
+                    <div class="spoke" data-archetype="exploiter">Exploiters</div>
+                    <div class="spoke" data-archetype="chaos">Chaos Makers</div>
+                    <div class="spoke" data-archetype="spiritual">Spiritual Narcissists</div>
+                    <div class="spoke" data-archetype="shock">Shock Provocateurs</div>
+                </div>
+            </div>
+            
+            <div class="normie-toggle">
+                <button class="normie-btn">Show Normie Artists</button>
+            </div>
+        </div>
+        
+        <div class="wheel-legend">
+            <p><strong>Interactive Wheel Coming Soon:</strong> Click spokes to explore artist archetypes, examples, and detailed profiles.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.jerk-wheel-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Averia Sans Libre', serif;
+}
+
+.jerk-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.intro-content h1 {
+    font-family: 'Spicy Rice', serif;
+    font-size: 3.5rem;
+    color: #7205aa;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.intro-content h2 {
+    color: #75c83c;
+    font-size: 2rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.intro-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.intro-content ul {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.intro-content li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.intro-content strong {
+    color: #7205aa;
+}
+
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.wheel-placeholder {
+    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+    border: 3px dashed #999;
+    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wheel-mock {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+
+.wheel-half {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.wheel-half.good-jerks {
+    background: linear-gradient(45deg, rgba(46, 134, 171, 0.2), rgba(117, 200, 60, 0.2));
+    border-radius: 300px 0 0 300px;
+}
+
+.wheel-half.bad-jerks {
+    background: linear-gradient(45deg, rgba(241, 143, 1, 0.2), rgba(199, 62, 29, 0.2));
+    border-radius: 0 300px 300px 0;
+}
+
+.wheel-half h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.wheel-half.good-jerks h3 {
+    color: #2E86AB;
+}
+
+.wheel-half.bad-jerks h3 {
+    color: #C73E1D;
+}
+
+.spoke {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    margin: 0.2rem 0;
+}
+
+.good-jerks .spoke:hover {
+    background: rgba(46, 134, 171, 0.8);
+    color: white;
+    border-color: #2E86AB;
+}
+
+.bad-jerks .spoke:hover {
+    background: rgba(199, 62, 29, 0.8);
+    color: white;
+    border-color: #C73E1D;
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 3px solid #7205aa;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.wheel-center h2 {
+    font-family: 'Spicy Rice', serif;
+    font-size: 1.3rem;
+    color: #7205aa;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.wheel-center p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.normie-toggle {
+    margin-top: 1rem;
+}
+
+.normie-btn {
+    background: #f0f0f0;
+    border: 2px solid #999;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.normie-btn:hover {
+    background: #999;
+    color: white;
+}
+
+.wheel-legend {
+    text-align: center;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
+.wheel-legend p {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .jerk-wheel-container {
+        padding: 1rem;
+    }
+    
+    .intro-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .wheel-placeholder {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .wheel-center {
+        width: 140px;
+        height: 140px;
+        padding: 1rem;
+    }
+    
+    .wheel-center h2 {
+        font-size: 1rem;
+    }
+    
+    .wheel-center p {
+        font-size: 0.8rem;
+    }
+    
+    .spoke {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wheel-placeholder {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .wheel-center {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .spoke {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+</style>
+
+<script>
+// Placeholder interaction for development
+document.addEventListener('DOMContentLoaded', function() {
+    const spokes = document.querySelectorAll('.spoke');
+    const normieBtn = document.querySelector('.normie-btn');
+    
+    spokes.forEach(spoke => {
+        spoke.addEventListener('click', function() {
+            const archetype = this.dataset.archetype;
+            alert(`${archetype} archetype selected!\n\nThis will show:\n- Primary artist example\n- Wheel blurb\n- Orbital secondary artists\n- Link to full archetype page`);
+        });
+    });
+    
+    if (normieBtn) {
+        normieBtn.addEventListener('click', function() {
+            alert('Normie Artists mode!\n\nThis will show:\n- 10 normie artist archetypes\n- Examples of genuinely nice artists\n- Comparison with jerk behaviors');
+        });
+    }
+});
+</script>
+{{ end }}

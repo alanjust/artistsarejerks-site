@@ -1,0 +1,260 @@
+{{ define "main" }}
+{{ partial "svg-hero.html" (dict "svgPath" "/svg/studio-template.svg" "fallbackImage" "/images/studio-template-fallback.png" "heroId" "section-hero") }}
+
+<div class="studio-content-overlay">
+    <div class="studio-content">
+        <div class="section-header">
+            <h1 class="section-title">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="section-description">{{ .Params.description }}</p>
+            {{ end }}
+        </div>
+        
+        <div class="section-content">
+            {{ .Content }}
+        </div>
+        
+        {{ if .Pages }}
+        <div class="section-pages">
+            <h2>Topics in this section:</h2>
+            <div class="page-grid">
+                {{ range .Pages }}
+                <div class="page-card">
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    {{ if .Summary }}
+                    <p class="page-summary">{{ .Summary | truncate 150 }}</p>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+.studio-content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: none;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.studio-content {
+    pointer-events: auto;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 202, 156, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: calc(100vh - 4rem);
+    padding: 2rem;
+    font-family: 'Averia Sans Libre', serif;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #7205aa;
+}
+
+.section-title {
+    font-family: 'Spicy Rice', serif;
+    font-size: 3rem;
+    color: #7205aa;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #02555b;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #02555b;
+    margin-bottom: 2rem;
+}
+
+.section-content h1, 
+.section-content h2, 
+.section-content h3 {
+    color: #7205aa;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.section-content h1 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid #b152f2;
+    padding-bottom: 0.5rem;
+}
+
+.section-content h2 {
+    font-size: 2rem;
+    color: #af0048;
+}
+
+.section-content h3 {
+    font-size: 1.5rem;
+    color: #318e16;
+}
+
+.section-content strong {
+    color: #7205aa;
+    font-weight: 700;
+}
+
+.section-content ul, 
+.section-content ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.section-content li {
+    margin-bottom: 0.5rem;
+}
+
+.section-content hr {
+    border: none;
+    border-top: 2px solid #b152f2;
+    margin: 3rem 0;
+}
+
+.section-content blockquote {
+    border-left: 4px solid #7205aa;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #7205aa;
+    background: rgba(114, 5, 170, 0.1);
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.section-pages {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #b152f2;
+}
+
+.section-pages h2 {
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
+    color: #7205aa;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.page-card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #b152f2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(114, 5, 170, 0.2);
+}
+
+.page-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.page-card h3 a {
+    color: #7205aa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.page-card h3 a:hover {
+    color: #af0048;
+}
+
+.page-summary {
+    color: #02555b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .studio-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+    
+    .section-content {
+        font-size: 1rem;
+    }
+    
+    .page-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .page-card {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-content {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-content {
+        font-size: 0.9rem;
+    }
+    
+    .page-card {
+        padding: 1rem;
+    }
+}
+</style>
+{{ end }}

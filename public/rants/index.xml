@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rants on Artists Are Jerks</title>
-    <link>http://localhost:1313/rants/</link>
+    <link>http://localhost:61597/rants/</link>
     <description>Recent content in Rants on Artists Are Jerks</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/rants/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:61597/rants/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stop Explaining Your Art (While You&#39;re Making It)</title>
-      <link>http://localhost:1313/rants/stop-explaining-your-art/</link>
+      <link>http://localhost:61597/rants/stop-explaining-your-art/</link>
       <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/rants/stop-explaining-your-art/</guid>
+      <guid>http://localhost:61597/rants/stop-explaining-your-art/</guid>
       <description>&lt;h1 id=&#34;stop-explaining-your-art-while-youre-making-it&#34;&gt;Stop Explaining Your Art (While You&amp;rsquo;re Making It)&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;m in my studio, three hours deep in a painting that&amp;rsquo;s finally starting to talk back to me, when someone walks in and immediately asks: &amp;ldquo;What&amp;rsquo;s it supposed to be?&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;SUPPOSED to be?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Listen, if I knew what it was supposed to be, I&amp;rsquo;d just take a photograph and save myself the paint. The whole point is that I&amp;rsquo;m having a conversation with the thing, and conversations - good ones anyway - involve surprises.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Museum Voice Needs to Die</title>
-      <link>http://localhost:1313/rants/blank-canvas-is-complete/</link>
+      <link>http://localhost:61597/rants/blank-canvas-is-complete/</link>
       <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/rants/blank-canvas-is-complete/</guid>
+      <guid>http://localhost:61597/rants/blank-canvas-is-complete/</guid>
       <description>&lt;h1 id=&#34;the-museum-voice-needs-to-die&#34;&gt;The Museum Voice Needs to Die&lt;/h1&gt;&#xA;&lt;p&gt;You know that hushed, reverent tone people use when they talk about art? The one that makes everything sound like a religious ceremony? Yeah, that needs to stop.&lt;/p&gt;&#xA;&lt;p&gt;I spend my days trying to get people excited about looking at things differently, and half my job is deprogramming them from this idea that art appreciation requires a monastery mindset.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;&lt;em&gt;The artist explores themes of temporal displacement through juxtaposed symbolic narratives&amp;hellip;&lt;/em&gt;&amp;rdquo;&lt;/p&gt;</description>
     </item>
   </channel>

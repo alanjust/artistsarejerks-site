@@ -12,49 +12,37 @@ assetDir = "assets"
 [menu]
 
   [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
+    identifier = "whats-a-jerk"
+    name = "What's a Jerk?"
+    url = "/whats-a-jerk/"
     weight = 1
 
   [[menu.main]]
-    identifier = "art-wheel"
-    name = "Art Wheel"
-    url = "/art-wheel/"
+    identifier = "artist-studio-guide"
+    name = "Artist Studio Guide"
+    url = "/artist-studio-guide/"
     weight = 2
 
   [[menu.main]]
-    identifier = "lab"
-    name = "Lab"
-    url = "/lab/"
+    identifier = "how-art-works"
+    name = "How Art Works"
+    url = "/how-art-works/"
     weight = 3
 
-    [[menu.main]]
-      parent = "lab"
-      name = "Aesthetic Break #1"
-      url = "/lab/aesthetic-break-01/"
-      weight = 1
-
   [[menu.main]]
-    identifier = "art-education"
-    name = "Art Education"
-    url = "/art-education/"
+    identifier = "gatekeepers"
+    name = "Gatekeepers"
+    url = "/gatekeepers/"
     weight = 4
 
   [[menu.main]]
-    identifier = "movements"
-    name = "Movements"
-    url = "/movements/"
+    identifier = "class-room"
+    name = "Classroom"
+    url = "/class-room/"
     weight = 5
 
   [[menu.main]]
-    identifier = "artists"
-    name = "Artists' Work"
-    url = "/artists/"
+    identifier = "attention-lab"
+    name = "Attention Lab"
+    url = "/attention-lab/"
     weight = 6
-
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 99

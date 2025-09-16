@@ -35,13 +35,44 @@
 
 
 <body>
-    {{ partial "header.html" . }}
+    <div class="site-wrapper">
+        {{ partial "header.html" . }}
 
-    <main>
-        {{ block "main" . }}{{ end }}
-    </main>
+        <main class="main-content">
+            {{ block "main" . }}{{ end }}
+        </main>
 
-    {{ partial "footer.html" . }}
+        {{ partial "footer.html" . }}
+    </div>
 </body>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Averia Sans Libre', serif;
+    background-color: #f9b749;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.site-wrapper {
+    height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    overflow: visible;
+}
+</style>
 
 </html>

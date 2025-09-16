@@ -1,0 +1,327 @@
+{{ $svgPath := .svgPath }}
+{{ $fallbackImage := .fallbackImage }}
+{{ $heroId := .heroId | default "svg-hero" }}
+
+<div class="svg-hero-container" id="{{ $heroId }}">
+    <div class="svg-hero-wrapper">
+        <object data="{{ $svgPath }}" type="image/svg+xml" class="svg-hero" aria-label="Hero image">
+            <!-- Fallback for browsers that don't support SVG -->
+            <img src="{{ $fallbackImage }}" alt="Hero image" class="svg-hero-fallback">
+        </object>
+    </div>
+    
+    <!-- Panning controls for portrait mode -->
+    <div class="svg-hero-controls" aria-label="Image navigation controls">
+        <button class="pan-control pan-left" aria-label="Pan left" tabindex="0">
+            <span class="pan-arrow">‹</span>
+        </button>
+        <button class="pan-control pan-right" aria-label="Pan right" tabindex="0">
+            <span class="pan-arrow">›</span>
+        </button>
+        <div class="pan-indicator">
+            <div class="pan-progress" aria-hidden="true"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.svg-hero-container {
+    position: relative;
+    min-width: 100vw;
+    width: max-content;
+    height: calc(100vh - 73.2px - 65.45px); /* Subtract header (60.2px + 13px border) and footer height */
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9b749;
+}
+
+.svg-hero-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-hero {
+    height: 100%;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    min-width: 100vw;
+}
+
+.svg-hero-fallback {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    min-width: 100vw;
+}
+
+.svg-hero-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.pan-control {
+    background: rgba(0, 0, 0, 0.7);
+    color: #75c83c;
+    border: 2px solid #75c83c;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.pan-control:hover,
+.pan-control:focus {
+    background: #75c83c;
+    color: #000;
+    outline: none;
+}
+
+.pan-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pan-indicator {
+    width: 80px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.pan-progress {
+    height: 100%;
+    background: #75c83c;
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hide controls by default - no panning needed with proper scaling */
+.svg-hero-controls {
+    display: none;
+}
+
+/* Touch and keyboard interaction styles */
+.svg-hero-container:focus-within .svg-hero-controls {
+    opacity: 1;
+}
+
+.svg-hero-wrapper.panning {
+    transition: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .pan-control {
+        border-width: 3px;
+        background: #000;
+    }
+    
+    .pan-indicator {
+        background: #fff;
+        border: 1px solid #000;
+    }
+}
+
+/* Mobile responsive height adjustments */
+@media (max-width: 768px) {
+    .svg-hero-container {
+        height: calc(100vh - 130px - 65.45px); /* Adjust for mobile header height */
+    }
+}
+
+@media (max-width: 480px) {
+    .svg-hero-container {
+        height: calc(100vh - 120px - 65.45px); /* Adjust for smaller mobile header */
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .svg-hero-wrapper {
+        transition: none;
+    }
+    
+    .pan-control {
+        transition: none;
+    }
+    
+    .pan-progress {
+        transition: none;
+    }
+}
+
+/* Focus management */
+.svg-hero-container:focus-within .pan-control:focus {
+    box-shadow: 0 0 0 3px rgba(117, 200, 60, 0.5);
+}
+</style>
+
+<script>
+// SVG Hero Panning Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const heroContainers = document.querySelectorAll('.svg-hero-container');
+    
+    heroContainers.forEach(container => {
+        const wrapper = container.querySelector('.svg-hero-wrapper');
+        const leftBtn = container.querySelector('.pan-left');
+        const rightBtn = container.querySelector('.pan-right');
+        const progress = container.querySelector('.pan-progress');
+        const svgElement = container.querySelector('.svg-hero');
+        
+        let currentPan = 0;
+        let maxPan = 0;
+        let isDragging = false;
+        let startX = 0;
+        let startPan = 0;
+        
+        // Check if content overflows and setup accordingly
+        function checkOverflow() {
+            if (window.innerHeight > window.innerWidth) { // Portrait mode
+                const svgWidth = svgElement.scrollWidth || svgElement.offsetWidth;
+                const containerWidth = container.offsetWidth;
+                maxPan = Math.max(0, svgWidth - containerWidth);
+                
+                if (maxPan > 0) {
+                    container.classList.add('has-overflow');
+                } else {
+                    container.classList.remove('has-overflow');
+                }
+                updateButtons();
+                updateProgress();
+            }
+        }
+        
+        // Update button states
+        function updateButtons() {
+            if (leftBtn && rightBtn) {
+                leftBtn.disabled = currentPan <= 0;
+                rightBtn.disabled = currentPan >= maxPan;
+            }
+        }
+        
+        // Update progress indicator
+        function updateProgress() {
+            if (progress && maxPan > 0) {
+                const progressPercent = (currentPan / maxPan) * 100;
+                progress.style.width = progressPercent + '%';
+            }
+        }
+        
+        // Pan to position
+        function panTo(position) {
+            currentPan = Math.max(0, Math.min(maxPan, position));
+            wrapper.style.transform = `translateX(-${currentPan}px)`;
+            updateButtons();
+            updateProgress();
+        }
+        
+        // Pan by amount
+        function panBy(amount) {
+            panTo(currentPan + amount);
+        }
+        
+        // Button click handlers
+        if (leftBtn) {
+            leftBtn.addEventListener('click', () => panBy(-100));
+        }
+        if (rightBtn) {
+            rightBtn.addEventListener('click', () => panBy(100));
+        }
+        
+        // Touch and mouse panning
+        function handleStart(clientX) {
+            isDragging = true;
+            startX = clientX;
+            startPan = currentPan;
+            wrapper.classList.add('panning');
+        }
+        
+        function handleMove(clientX) {
+            if (!isDragging) return;
+            const deltaX = startX - clientX;
+            panTo(startPan + deltaX);
+        }
+        
+        function handleEnd() {
+            isDragging = false;
+            wrapper.classList.remove('panning');
+        }
+        
+        // Mouse events
+        wrapper.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            handleStart(e.clientX);
+        });
+        
+        document.addEventListener('mousemove', (e) => handleMove(e.clientX));
+        document.addEventListener('mouseup', handleEnd);
+        
+        // Touch events
+        wrapper.addEventListener('touchstart', (e) => {
+            handleStart(e.touches[0].clientX);
+        }, { passive: true });
+        
+        wrapper.addEventListener('touchmove', (e) => {
+            handleMove(e.touches[0].clientX);
+        }, { passive: true });
+        
+        wrapper.addEventListener('touchend', handleEnd, { passive: true });
+        
+        // Keyboard navigation
+        container.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    panBy(-50);
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    panBy(50);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    panTo(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    panTo(maxPan);
+                    break;
+            }
+        });
+        
+        // Make container focusable for keyboard navigation
+        container.setAttribute('tabindex', '0');
+        container.setAttribute('role', 'img');
+        container.setAttribute('aria-label', 'Interactive hero image - use arrow keys to navigate');
+        
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            setTimeout(checkOverflow, 100);
+        });
+        
+        // Initial setup
+        setTimeout(checkOverflow, 100);
+    });
+});
+</script>

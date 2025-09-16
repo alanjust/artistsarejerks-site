@@ -1,0 +1,252 @@
+{{ define "main" }}
+{{ partial "svg-hero.html" (dict "svgPath" "/svg/studio-template.svg" "fallbackImage" "/images/studio-template-fallback.png" "heroId" "studio-list-hero") }}
+
+<div class="studio-content-overlay">
+    <div class="studio-content">
+        <header class="section-header">
+            <h1 class="section-title">{{ .Title }}</h1>
+            {{ if .Content }}
+            <div class="section-description">
+                {{ .Content }}
+            </div>
+            {{ end }}
+        </header>
+        
+        <div class="studio-grid">
+            {{ range .Pages }}
+            <article class="studio-card">
+                <h2 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                {{ if .Params.subtitle }}
+                <h3 class="card-subtitle">{{ .Params.subtitle }}</h3>
+                {{ end }}
+                {{ if .Summary }}
+                <p class="card-summary">{{ .Summary }}</p>
+                {{ end }}
+                {{ if .Date }}
+                <div class="card-meta">
+                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                        {{ .Date.Format "January 2, 2006" }}
+                    </time>
+                </div>
+                {{ end }}
+                <a href="{{ .RelPermalink }}" class="card-link">Enter Studio →</a>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<style>
+.studio-content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: none;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.studio-content {
+    pointer-events: auto;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 202, 156, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: calc(100vh - 4rem);
+    padding: 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #7205aa;
+}
+
+.section-title {
+    font-family: 'Spicy Rice', serif;
+    font-size: 3rem;
+    color: #7205aa;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-description {
+    font-family: 'Averia Sans Libre', serif;
+    font-size: 1.2rem;
+    color: #02555b;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.studio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.studio-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #b152f2;
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.studio-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #7205aa, #b152f2, #af0048, #318e16);
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.studio-card:hover::before {
+    opacity: 1;
+}
+
+.studio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(114, 5, 170, 0.25);
+}
+
+.card-title {
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.card-title a {
+    color: #7205aa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+    color: #af0048;
+}
+
+.card-subtitle {
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #318e16;
+    margin-bottom: 1rem;
+}
+
+.card-summary {
+    font-family: 'Averia Sans Libre', serif;
+    font-size: 1rem;
+    color: #02555b;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+.card-meta {
+    font-family: 'Averia Sans Libre', serif;
+    font-size: 0.9rem;
+    color: #b152f2;
+    margin-bottom: 1.2rem;
+}
+
+.card-link {
+    display: inline-block;
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
+    color: #7205aa;
+    text-decoration: none;
+    border: 2px solid #7205aa;
+    padding: 0.7rem 1.3rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    background: #7205aa;
+    color: #ffca9c;
+    transform: scale(1.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .studio-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .studio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .studio-card {
+        padding: 1.2rem;
+    }
+    
+    .card-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-content {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+    
+    .studio-card {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .card-subtitle {
+        font-size: 1rem;
+    }
+    
+    .card-summary {
+        font-size: 0.9rem;
+    }
+}
+</style>
+{{ end }}

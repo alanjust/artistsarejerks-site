@@ -1,27 +1,266 @@
-<button onclick="window.history.back()"
-    style="position: fixed; top: 1.2rem; left: 1.2rem; background: none; border: none; padding: 0; z-index: 1000; cursor: pointer;">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6L10 14L18 22" stroke="#58e003" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-</button>
-<header>
-    <h1>Artists Are Jerks</h1>
-</header>
-
-<nav>
-    <button id="menu-toggle" aria-label="Toggle menu">☰</button>
-    <ul id="main-menu">
-        {{ range .Site.Menus.main }}
-        <li>
-            <a href="{{ .URL }}" aria-haspopup="{{ .HasChildren }}">{{ .Name }}</a>
-            {{ if .HasChildren }}
-            <ul>
-                {{ range .Children }}
-                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+<header class="site-header">
+    <div class="header-content">
+        <div class="site-title">
+            <a href="/">Artists Are Jerks</a>
+        </div>
+        <nav class="main-navigation">
+            <ul class="nav-menu">
+                {{ $site := .Site }}
+                {{ range .Site.Menus.main }}
+                <li class="nav-item">
+                    <button class="nav-button" data-dropdown="{{ .Identifier }}">
+                        {{ .Name }}
+                    </button>
+                    <div class="dropdown-menu" id="dropdown-{{ .Identifier }}">
+                        <ul class="dropdown-list">
+                            {{ $currentMenuID := .Identifier }}
+                            {{ $currentURL := .URL }}
+                            {{ $currentName := .Name }}
+                            {{ $submenu := index $site.Menus $currentMenuID }}
+                            {{ if $submenu }}
+                                {{ range $submenu }}
+                                <li><a href="{{ .URL }}" class="dropdown-link">{{ .Name }}</a></li>
+                                {{ end }}
+                            {{ else }}
+                                <li><a href="{{ $currentURL }}" class="dropdown-link">Visit {{ $currentName }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </li>
                 {{ end }}
             </ul>
-            {{ end }}
-        </li>
-        {{ end }}
-    </ul>
-</nav>
+        </nav>
+    </div>
+</header>
+
+<style>
+.site-header {
+    width: 100vw;
+    min-width: 100vw;
+    height: 60.2px;
+    background: #7205aa;
+    border-bottom: 13px solid #000;
+    position: relative;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60.2px;
+    padding: 0 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.site-title a {
+    font-family: 'Spicy Rice', serif;
+    font-size: 23px;
+    color: #f9b749;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #75c83c;
+    cursor: pointer;
+    padding: 0 2px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.nav-button:hover {
+    opacity: 0.8;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #75c83c;
+    text-decoration: none;
+    font-family: 'Averia Sans Libre', serif;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(117, 200, 60, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+    .nav-button {
+        font-size: 18px;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+        flex-direction: column;
+        height: auto;
+        min-height: 60.2px;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-button {
+        font-size: 12px;
+        padding: 0 1px;
+    }
+    
+    .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    
+    .dropdown-menu.active {
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .site-header {
+        height: auto;
+        min-height: 60.2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title a {
+        font-size: 18px;
+    }
+    
+    .nav-button {
+        font-size: 10px;
+        padding: 0;
+    }
+    
+    .nav-menu {
+        gap: 0.5rem;
+    }
+    
+    .header-content {
+        padding: 0.5rem 1rem;
+    }
+}
+</style>
+
+<script>
+// Dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const navButtons = document.querySelectorAll('.nav-button');
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    
+    // Function to close all dropdowns
+    function closeAllDropdowns() {
+        dropdownMenus.forEach(menu => {
+            menu.classList.remove('active');
+        });
+    }
+    
+    // Add click event to each nav button
+    navButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            const dropdownId = 'dropdown-' + this.getAttribute('data-dropdown');
+            const targetDropdown = document.getElementById(dropdownId);
+            
+            // Close all other dropdowns first
+            dropdownMenus.forEach(menu => {
+                if (menu.id !== dropdownId) {
+                    menu.classList.remove('active');
+                }
+            });
+            
+            // Toggle the target dropdown
+            if (targetDropdown) {
+                targetDropdown.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.main-navigation')) {
+            closeAllDropdowns();
+        }
+    });
+    
+    // Prevent dropdown from closing when clicking inside it
+    dropdownMenus.forEach(menu => {
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+    
+    // Close dropdown when clicking on a dropdown link
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeAllDropdowns();
+        });
+    });
+    
+    // Handle escape key to close dropdowns
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllDropdowns();
+        }
+    });
+});
+</script>
