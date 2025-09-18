@@ -1,0 +1,34 @@
+/* Middle “stage” between header/footer */
+#stage {
+    flex: 1 1 auto;
+    min-height: 0;
+    /* critical for flex children using % heights */
+    position: relative;
+    background: #000;
+}
+
+/* Only this container can scroll horizontally */
+#svgScroller {
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable both-edges;
+}
+
+/* Centers SVG when it does NOT overflow horizontally */
+#svgRack {
+    height: 100%;
+    width: max-content;
+    /* shrink-wrap to SVG width */
+    margin: 0 auto;
+    /* center when no overflow */
+    display: block;
+}
+
+/* SVG sizing: fill height, width from viewBox aspect; capped by JS */
+#art {
+    display: block;
+    height: 100%;
+    width: auto;
+}

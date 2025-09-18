@@ -1,0 +1,36 @@
+{{ define "head" }}
+{{ $css := resources.Get "css/svg-sandbox.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ end }}
+
+{{ define "main" }}
+<div id="stage">
+    <div id="svgScroller" aria-label="Horizontal pan area">
+        <!-- Wrapper centers when there is NO horizontal overflow -->
+        <div id="svgRack">
+            <svg id="art" viewBox="0 0 2400 1200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0" stop-color="#2b2b2b" />
+                        <stop offset="1" stop-color="#6b6b6b" />
+                    </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="2400" height="1200" fill="url(#g)" />
+                <g opacity="0.25" stroke="#fff" stroke-width="6" fill="none">
+                    <circle cx="1200" cy="600" r="260" />
+                    <rect x="220" y="220" width="400" height="400" />
+                    <rect x="1780" y="540" width="260" height="460" />
+                    <path d="M0,600 H2400" />
+                </g>
+                <text x="1200" y="90" font-size="64" text-anchor="middle" fill="#fff" opacity="0.6">SVG Sandbox
+                    Demo</text>
+            </svg>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "footer-scripts" }}
+{{ $js := resources.Get "js/svg-fit.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}
