@@ -1,12 +1,12 @@
 {{ define "main" }}
-<div class="jerk-wheel-container">
+<div class="page-content">
     <div class="jerk-intro">
         <div class="intro-content">
             {{ .Content }}
         </div>
     </div>
     
-    <!-- Placeholder for Interactive Jerk Wheel -->
+    <!-- Interactive Jerk Wheel -->
     <div class="wheel-container">
         <div class="wheel-placeholder">
             <div class="wheel-mock">
@@ -44,16 +44,35 @@
 </div>
 
 <style>
-.jerk-wheel-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
+/* Stage styling - matching experimental page exactly */
+.main-content {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150vw;
+    width: max-content;
+    padding: 4rem 2rem;
     font-family: 'Averia Sans Libre', serif;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .jerk-intro {
     text-align: center;
     margin-bottom: 3rem;
+    max-width: 1000px;
+    width: 100%;
 }
 
 .intro-content h1 {
@@ -74,7 +93,6 @@
     font-size: 1.2rem;
     line-height: 1.7;
     color: #333;
-    max-width: 800px;
     margin: 0 auto 1.5rem auto;
 }
 
@@ -99,7 +117,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin: 4rem 0;
+    margin: 2rem 0;
 }
 
 .wheel-placeholder {
@@ -113,6 +131,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .wheel-mock {
@@ -134,12 +153,12 @@
 }
 
 .wheel-half.good-jerks {
-    background: linear-gradient(45deg, rgba(46, 134, 171, 0.2), rgba(117, 200, 60, 0.2));
+    background: linear-gradient(45deg, rgba(46, 134, 171, 0.3), rgba(117, 200, 60, 0.3));
     border-radius: 300px 0 0 300px;
 }
 
 .wheel-half.bad-jerks {
-    background: linear-gradient(45deg, rgba(241, 143, 1, 0.2), rgba(199, 62, 29, 0.2));
+    background: linear-gradient(45deg, rgba(241, 143, 1, 0.3), rgba(199, 62, 29, 0.3));
     border-radius: 0 300px 300px 0;
 }
 
@@ -159,7 +178,7 @@
 }
 
 .spoke {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -169,18 +188,21 @@
     transition: all 0.3s ease;
     border: 2px solid transparent;
     margin: 0.2rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .good-jerks .spoke:hover {
-    background: rgba(46, 134, 171, 0.8);
+    background: rgba(46, 134, 171, 0.9);
     color: white;
     border-color: #2E86AB;
+    transform: scale(1.05);
 }
 
 .bad-jerks .spoke:hover {
-    background: rgba(199, 62, 29, 0.8);
+    background: rgba(199, 62, 29, 0.9);
     color: white;
     border-color: #C73E1D;
+    transform: scale(1.05);
 }
 
 .wheel-center {
@@ -199,7 +221,7 @@
     align-items: center;
     text-align: center;
     border: 3px solid #7205aa;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .wheel-center h2 {
@@ -222,7 +244,7 @@
 }
 
 .normie-btn {
-    background: #f0f0f0;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
     border: 2px solid #999;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
@@ -231,29 +253,38 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .normie-btn:hover {
-    background: #999;
+    background: linear-gradient(135deg, #999, #777);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .wheel-legend {
     text-align: center;
     max-width: 600px;
     margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .wheel-legend p {
     font-size: 1rem;
     color: #666;
     font-style: italic;
+    margin: 0;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    .jerk-wheel-container {
-        padding: 1rem;
+    .page-content {
+        padding: 2rem 1rem;
+        min-width: 120vw;
     }
     
     .intro-content h1 {
@@ -301,9 +332,62 @@
         padding: 0.2rem 0.6rem;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .main-content {
+        scroll-behavior: auto;
+    }
+    
+    .spoke:hover,
+    .normie-btn:hover {
+        transform: none;
+    }
+}
 </style>
 
 <script>
+const stage = document.querySelector('.main-content'); // Use the main element as stage
+
+function prefersReduced() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function center() {
+    if (!stage) return;
+    const dx = (stage.scrollWidth - stage.clientWidth) / 2;
+    const prev = stage.style.scrollBehavior;
+    if (prefersReduced()) stage.style.scrollBehavior = 'auto';
+    stage.scrollLeft = Math.max(0, dx);
+    stage.style.scrollBehavior = prev;
+}
+
+function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+window.addEventListener('load', center);
+window.addEventListener('resize', debounce(center, 120));
+
+window.addEventListener('keydown', (e) => {
+    const nudge = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nudge')) || 80;
+    if (e.key === 'ArrowLeft') { stage.scrollLeft -= nudge; }
+    if (e.key === 'ArrowRight') { stage.scrollLeft += nudge; }
+});
+
+stage.addEventListener('wheel', (e) => {
+    if (e.shiftKey && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        stage.scrollLeft += e.deltaY;
+        e.preventDefault();
+    }
+}, { passive: false });
+
+if (window.matchMedia('(pointer:coarse)').matches) {
+    ['.site-header', '.site-footer'].forEach(sel => {
+        const el = document.querySelector(sel);
+        el && el.addEventListener('dblclick', center);
+    });
+}
+
 // Placeholder interaction for development
 document.addEventListener('DOMContentLoaded', function() {
     const spokes = document.querySelectorAll('.spoke');
