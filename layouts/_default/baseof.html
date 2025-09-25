@@ -8,9 +8,6 @@
     {{ $mainCSS := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}" integrity="{{ $mainCSS.Data.Integrity }}"
         crossorigin="anonymous">
-    {{ $attentionCSS := resources.Get "css/attention.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $attentionCSS.RelPermalink }}" integrity="{{ $attentionCSS.Data.Integrity }}"
-        crossorigin="anonymous">
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
