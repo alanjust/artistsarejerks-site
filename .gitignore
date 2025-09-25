@@ -4,6 +4,9 @@ public/
 agent/
 login/
 
-# local agent artifacts
-agent/
-login/
+
+
+backups/
+*_backup/
+*.bak
+
