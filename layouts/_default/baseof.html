@@ -19,11 +19,6 @@
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <meta name="theme-color" content="#111418">
 
-    {{ if eq .Type "art-wheel" }}
-    {{ $awCSS := resources.Get "css/components/art-wheel.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $awCSS.RelPermalink }}" integrity="{{ $awCSS.Data.Integrity }}"
-        crossorigin="anonymous">
-    {{ end }}
     <!-- Component styles will be loaded by their respective templates -->
 </head>
 

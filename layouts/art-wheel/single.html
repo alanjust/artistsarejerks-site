@@ -66,6 +66,10 @@
     }
     </script>
 
+    {{ $awCSS := resources.Get "css/components/art-wheel.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $awCSS.RelPermalink }}" integrity="{{ $awCSS.Data.Integrity }}"
+        crossorigin="anonymous">
+
     {{ $awJS := resources.Get "js/art-wheel.js" | minify | fingerprint }}
     <script defer src="{{ $awJS.RelPermalink }}" integrity="{{ $awJS.Data.Integrity }}"
         crossorigin="anonymous"></script>

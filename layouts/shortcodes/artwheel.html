@@ -1,7 +1,8 @@
-{{ $artWheelJSON := resources.Get "components/art-wheel/art-elements.json" | fingerprint }}
-<div class="artwheel attn-card" data-src="{{ if $artWheelJSON }}{{ $artWheelJSON.RelPermalink }}{{ end }}" tabindex="0">
+{{ $attentionWheelJSON := resources.Get "js/attention/art-elements-wheel.json" | fingerprint }}
+<div class="attention-wheel attn-card"
+  data-src="{{ if $attentionWheelJSON }}{{ $attentionWheelJSON.RelPermalink }}{{ end }}" tabindex="0">
   <div class="wheel-wrap">
-    <svg class="wheel" width="360" height="360" viewBox="0 0 360 360" aria-label="art wheel">
+    <svg class="wheel" width="360" height="360" viewBox="0 0 360 360" aria-label="attention wheel">
       <g id="wheel"></g>
       <circle cx="180" cy="180" r="175" fill="none" stroke="#ddd" />
       <circle cx="180" cy="180" r="6" fill="#333" />
@@ -17,7 +18,7 @@
     <p class="aw-prompt attn-center"><em></em></p>
   </div>
 </div>
-{{ $awCSS := resources.Get "components/art-wheel/art-wheel.css" | minify | fingerprint }}
+{{ $awCSS := resources.Get "css/attention.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $awCSS.RelPermalink }}" integrity="{{ $awCSS.Data.Integrity }}" crossorigin="anonymous">
-{{ $awJS := resources.Get "components/art-wheel/art-wheel.js" | minify | fingerprint }}
+{{ $awJS := resources.Get "js/attention/attention-wheel.js" | minify | fingerprint }}
 <script defer src="{{ $awJS.RelPermalink }}" integrity="{{ $awJS.Data.Integrity }}" crossorigin="anonymous"></script>

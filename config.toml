@@ -46,3 +46,9 @@ assetDir = "assets"
     name = "Attention Lab"
     url = "/attention-lab/"
     weight = 6
+
+  [[menu.main]]
+    identifier = "art-wheel"
+    name = "Art History Wheel"
+    url = "/art-wheel/"
+    weight = 7
