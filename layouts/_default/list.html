@@ -1,209 +1,278 @@
 {{ define "main" }}
-{{ partial "svg-hero.html" (dict "svgPath" "/svg/studio-template.svg" "fallbackImage" "/images/studio-template-fallback.png" "heroId" "list-hero") }}
-
-<div class="studio-content-overlay">
-    <div class="studio-content">
-        <header class="section-header">
-            <h1 class="section-title">{{ .Title }}</h1>
-            {{ if .Content }}
-            <div class="section-description">
-                {{ .Content }}
-            </div>
-            {{ end }}
-        </header>
-        
-        <div class="content-grid">
-            {{ range .Pages }}
-            <article class="content-card">
-                <h2 class="card-title">
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h2>
-                {{ if .Summary }}
-                <p class="card-summary">{{ .Summary }}</p>
-                {{ end }}
-                {{ if .Date }}
-                <div class="card-meta">
-                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                        {{ .Date.Format "January 2, 2006" }}
-                    </time>
-                </div>
-                {{ end }}
-                <a href="{{ .RelPermalink }}" class="card-link">Read More →</a>
-            </article>
+<div class="page-content">
+    {{ if .Content }}
+    <div class="content-header">
+        <h1>{{ .Title }}</h1>
+        {{ if .Params.description }}
+        <p class="description">{{ .Params.description }}</p>
+        {{ end }}
+    </div>
+    
+    <div class="content-body">
+        {{ .Content }}
+    </div>
+    
+    {{ if .Pages }}
+    <div class="page-list">
+        <h2>Pages in this section:</h2>
+        {{ range .Pages }}
+        <div class="page-item">
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            {{ if .Summary }}
+            <p>{{ .Summary | truncate 200 }}</p>
             {{ end }}
         </div>
+        {{ end }}
     </div>
+    {{ end }}
+    {{ else }}
+    <!-- Fallback SVG if no content -->
+    <div class="svg-demo">
+        <svg viewBox="0 0 2400 1200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0" stop-color="#2b2b2b" />
+                    <stop offset="1" stop-color="#6b6b6b" />
+                </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="2400" height="1200" fill="url(#g)" />
+            <g opacity="0.25" stroke="#fff" stroke-width="6" fill="none">
+                <circle cx="1200" cy="600" r="260" />
+                <rect x="220" y="220" width="400" height="400" />
+                <rect x="1780" y="540" width="260" height="460" />
+                <path d="M0,600 H2400" />
+            </g>
+            <text x="1200" y="90" font-size="64" text-anchor="middle" fill="#fff" opacity="0.6">SVG Demo</text>
+        </svg>
+    </div>
+    {{ end }}
 </div>
 
 <style>
-.studio-content-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Stage styling - matching experimental page exactly */
+.main-content {
+    overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 5;
-    pointer-events: none;
-    padding: 2rem;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 150vw;
+    width: max-content;
+    padding: 4rem 2rem;
+    font-family: 'Averia Sans Libre', serif;
+    height: 100%;
     box-sizing: border-box;
+    max-width: 1400px;
 }
 
-.studio-content {
-    pointer-events: auto;
-    max-width: 1200px;
-    width: 100%;
-    background: rgba(255, 202, 156, 0.95);
-    backdrop-filter: blur(8px);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    max-height: calc(100vh - 4rem);
-    padding: 2rem;
-}
-
-.section-header {
+.content-header {
     text-align: center;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
     border-bottom: 3px solid #7205aa;
 }
 
-.section-title {
+.content-header h1 {
     font-family: 'Spicy Rice', serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #7205aa;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.section-description {
-    font-family: 'Averia Sans Libre', serif;
-    font-size: 1.2rem;
-    color: #02555b;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.content-card {
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #b152f2;
-    border-radius: 15px;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(114, 5, 170, 0.2);
-}
-
-.card-title {
-    font-family: 'Averia Sans Libre', serif;
-    font-weight: 700;
-    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.card-title a {
+.description {
+    font-size: 1.2rem;
+    color: #02555b;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-body {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.content-body h2 {
+    color: #7205aa;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-body h3 {
+    color: #af0048;
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.page-list {
+    border-top: 2px solid #7205aa;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.page-list h2 {
+    color: #7205aa;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-item {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    border-left: 4px solid #7205aa;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(114, 5, 170, 0.15);
+}
+
+.page-item h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.page-item h3 a {
     color: #7205aa;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.card-title a:hover {
+.page-item h3 a:hover {
     color: #af0048;
 }
 
-.card-summary {
-    font-family: 'Averia Sans Libre', serif;
-    font-size: 1rem;
-    color: #02555b;
+.page-item p {
+    margin: 0;
+    color: #555;
     line-height: 1.5;
-    margin-bottom: 1rem;
 }
 
-.card-meta {
-    font-family: 'Averia Sans Libre', serif;
-    font-size: 0.9rem;
-    color: #b152f2;
-    margin-bottom: 1rem;
+.svg-demo {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card-link {
-    display: inline-block;
-    font-family: 'Averia Sans Libre', serif;
-    font-weight: 700;
-    color: #7205aa;
-    text-decoration: none;
-    border: 2px solid #7205aa;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.card-link:hover {
-    background: #7205aa;
-    color: #ffca9c;
-    transform: scale(1.05);
+.svg-demo svg {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    .studio-content {
-        padding: 1.5rem;
-        margin: 1rem;
+    .page-content {
+        padding: 2rem 1rem;
+        min-width: 120vw;
     }
     
-    .section-title {
-        font-size: 2.2rem;
+    .content-header h1 {
+        font-size: 2rem;
     }
     
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .description {
+        font-size: 1rem;
     }
     
-    .content-card {
+    .content-body {
+        font-size: 1rem;
+    }
+    
+    .page-item {
         padding: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .studio-content {
-        padding: 1rem;
-        margin: 0.5rem;
+    .page-content {
+        padding: 1rem 0.5rem;
+        min-width: 110vw;
     }
     
-    .section-header {
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
-    }
-    
-    .section-title {
+    .content-header h1 {
         font-size: 1.8rem;
     }
     
-    .section-description {
-        font-size: 1rem;
-    }
-    
-    .content-card {
+    .page-item {
         padding: 1rem;
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-content {
+        scroll-behavior: auto;
+    }
     
-    .card-title {
-        font-size: 1.3rem;
+    .page-item:hover {
+        transform: none;
     }
 }
 </style>
+
+<script>
+const stage = document.querySelector('.main-content'); // Use the main element as stage
+
+function prefersReduced() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function center() {
+    if (!stage) return;
+    const dx = (stage.scrollWidth - stage.clientWidth) / 2;
+    const prev = stage.style.scrollBehavior;
+    if (prefersReduced()) stage.style.scrollBehavior = 'auto';
+    stage.scrollLeft = Math.max(0, dx);
+    stage.style.scrollBehavior = prev;
+}
+
+function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+window.addEventListener('load', center);
+window.addEventListener('resize', debounce(center, 120));
+
+window.addEventListener('keydown', (e) => {
+    const nudge = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nudge')) || 80;
+    if (e.key === 'ArrowLeft') { stage.scrollLeft -= nudge; }
+    if (e.key === 'ArrowRight') { stage.scrollLeft += nudge; }
+});
+
+stage.addEventListener('wheel', (e) => {
+    if (e.shiftKey && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        stage.scrollLeft += e.deltaY;
+        e.preventDefault();
+    }
+}, { passive: false });
+
+if (window.matchMedia('(pointer:coarse)').matches) {
+    ['.site-header', '.site-footer'].forEach(sel => {
+        const el = document.querySelector(sel);
+        el && el.addEventListener('dblclick', center);
+    });
+}
+</script>
 {{ end }}

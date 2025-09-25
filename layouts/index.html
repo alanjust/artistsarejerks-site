@@ -1,67 +1,84 @@
 {{ define "main" }}
-{{ partial "svg-hero.html" (dict "svgPath" "/svg/studio-home.svg" "fallbackImage" "/images/studio-home-fallback.png" "heroId" "homepage-hero") }}
-
-<!-- Start Here button positioned on the hero -->
-<div class="hero-overlay-content">
-    <div class="easel-button-container">
-        <a href="/whats-a-jerk/" class="start-here-button">Start Here</a>
-    </div>
+<div class="art-container">
+    <img id="art" alt="Studio Entrance Wall" src="/svg/studio-home.svg" />
 </div>
 
 <style>
-.hero-overlay-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
+/* Make the main element (from baseof.html) behave like the stage */
+.main-content {
+    overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
-.easel-button-container {
-    pointer-events: auto;
+.art-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-width: 100%;
 }
 
-.start-here-button {
-    display: inline-block;
-    font-family: 'Averia Sans Libre', serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #7205aa;
-    background: rgba(255, 255, 255, 0.95);
-    text-decoration: none;
-    border: 3px solid #7205aa;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
+#art {
+    height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-.start-here-button:hover {
-    background: #7205aa;
-    color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(114, 5, 170, 0.4);
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .start-here-button {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .start-here-button {
-        font-size: 0.9rem;
-        padding: 0.7rem 1.2rem;
+@media (prefers-reduced-motion: reduce) {
+    .main-content {
+        scroll-behavior: auto;
     }
 }
 </style>
+
+<script>
+const stage = document.querySelector('.main-content'); // Use the main element as stage
+const art = document.getElementById('art');
+
+function prefersReduced() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function center() {
+    if (!stage) return;
+    const dx = (stage.scrollWidth - stage.clientWidth) / 2;
+    const prev = stage.style.scrollBehavior;
+    if (prefersReduced()) stage.style.scrollBehavior = 'auto';
+    stage.scrollLeft = Math.max(0, dx);
+    stage.style.scrollBehavior = prev;
+}
+
+function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+window.addEventListener('load', center);
+window.addEventListener('resize', debounce(center, 120));
+art && art.addEventListener('load', center);
+
+window.addEventListener('keydown', (e) => {
+    const nudge = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nudge')) || 80;
+    if (e.key === 'ArrowLeft') { stage.scrollLeft -= nudge; }
+    if (e.key === 'ArrowRight') { stage.scrollLeft += nudge; }
+});
+
+stage.addEventListener('wheel', (e) => {
+    if (e.shiftKey && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        stage.scrollLeft += e.deltaY;
+        e.preventDefault();
+    }
+}, { passive: false });
+
+if (window.matchMedia('(pointer:coarse)').matches) {
+    ['.site-header', '.site-footer'].forEach(sel => {
+        const el = document.querySelector(sel);
+        el && el.addEventListener('dblclick', center);
+    });
+}
+</script>
 {{ end }}

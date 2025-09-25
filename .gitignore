@@ -1,7 +1,22 @@
+# Hugo & static site outputs
 /public/
 /resources/
+
+# Node/JS
 node_modules/
-/_site/
-/.cache/
 /dist/
 /build/
+/.cache/
+
+# 11ty (future)
+/_site/
+
+# Backups
+backups/
+*_backup/
+*.bak
+
+# Editors
+.DS_Store
+.idea/
+.vscode/
