@@ -1,19 +1,84 @@
 {{ define "main" }}
-<div class="homepage-container">
-  <div class="homepage-grid">
-    <div class="homepage-image">
-      <img src="/images/artists-are-jerks-original.png" alt="Artists Are Jerks - Alan Just Presents" class="homepage-poster">
-    </div>
-    <div class="homepage-content">
-      <h2>Welcome to Artists Are Jerks</h2>
-      <p>This is a local test prototype of a satire-driven art and design site. Expect irreverence.</p>
-      <h2>Latest Rants</h2>
-      <ul>
-          {{ range first 5 (where .Site.RegularPages "Section" "rants") }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-          {{ end }}
-      </ul>
-    </div>
-  </div>
+<div class="art-container">
+    <img id="art" alt="Studio Entrance Wall" src="/svg/studio-home.svg" />
 </div>
+
+<style>
+/* Make the main element (from baseof.html) behave like the stage */
+.main-content {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.art-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-width: 100%;
+}
+
+#art {
+    height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-content {
+        scroll-behavior: auto;
+    }
+}
+</style>
+
+<script>
+const stage = document.querySelector('.main-content'); // Use the main element as stage
+const art = document.getElementById('art');
+
+function prefersReduced() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function center() {
+    if (!stage) return;
+    const dx = (stage.scrollWidth - stage.clientWidth) / 2;
+    const prev = stage.style.scrollBehavior;
+    if (prefersReduced()) stage.style.scrollBehavior = 'auto';
+    stage.scrollLeft = Math.max(0, dx);
+    stage.style.scrollBehavior = prev;
+}
+
+function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+window.addEventListener('load', center);
+window.addEventListener('resize', debounce(center, 120));
+art && art.addEventListener('load', center);
+
+window.addEventListener('keydown', (e) => {
+    const nudge = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nudge')) || 80;
+    if (e.key === 'ArrowLeft') { stage.scrollLeft -= nudge; }
+    if (e.key === 'ArrowRight') { stage.scrollLeft += nudge; }
+});
+
+stage.addEventListener('wheel', (e) => {
+    if (e.shiftKey && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        stage.scrollLeft += e.deltaY;
+        e.preventDefault();
+    }
+}, { passive: false });
+
+if (window.matchMedia('(pointer:coarse)').matches) {
+    ['.site-header', '.site-footer'].forEach(sel => {
+        const el = document.querySelector(sel);
+        el && el.addEventListener('dblclick', center);
+    });
+}
+</script>
 {{ end }}

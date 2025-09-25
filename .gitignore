@@ -1,0 +1,12 @@
+public/
+
+# local agent artifacts
+agent/
+login/
+
+
+
+backups/
+*_backup/
+*.bak
+

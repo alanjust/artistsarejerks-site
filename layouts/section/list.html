@@ -1,49 +1,29 @@
 {{ define "main" }}
 <div class="page-content">
-    {{ if .Content }}
-    <div class="content-header">
-        <h1>{{ .Title }}</h1>
+    <div class="section-header">
+        <h1 class="section-title">{{ .Title }}</h1>
         {{ if .Params.description }}
-        <p class="description">{{ .Params.description }}</p>
+        <p class="section-description">{{ .Params.description }}</p>
         {{ end }}
     </div>
     
-    <div class="content-body">
+    <div class="section-content">
         {{ .Content }}
     </div>
     
     {{ if .Pages }}
-    <div class="page-list">
-        <h2>Pages in this section:</h2>
-        {{ range .Pages }}
-        <div class="page-item">
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-            {{ if .Summary }}
-            <p>{{ .Summary | truncate 200 }}</p>
+    <div class="section-pages">
+        <h2>Topics in this section:</h2>
+        <div class="page-grid">
+            {{ range .Pages }}
+            <div class="page-card">
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                {{ if .Summary }}
+                <p class="page-summary">{{ .Summary | truncate 150 }}</p>
+                {{ end }}
+            </div>
             {{ end }}
         </div>
-        {{ end }}
-    </div>
-    {{ end }}
-    {{ else }}
-    <!-- Fallback SVG if no content -->
-    <div class="svg-demo">
-        <svg viewBox="0 0 2400 1200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0" stop-color="#2b2b2b" />
-                    <stop offset="1" stop-color="#6b6b6b" />
-                </linearGradient>
-            </defs>
-            <rect x="0" y="0" width="2400" height="1200" fill="url(#g)" />
-            <g opacity="0.25" stroke="#fff" stroke-width="6" fill="none">
-                <circle cx="1200" cy="600" r="260" />
-                <rect x="220" y="220" width="400" height="400" />
-                <rect x="1780" y="540" width="260" height="460" />
-                <path d="M0,600 H2400" />
-            </g>
-            <text x="1200" y="90" font-size="64" text-anchor="middle" fill="#fff" opacity="0.6">SVG Demo</text>
-        </svg>
     </div>
     {{ end }}
 </div>
@@ -73,113 +53,150 @@
     max-width: 1400px;
 }
 
-.content-header {
+.section-header {
     text-align: center;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
     border-bottom: 3px solid #7205aa;
 }
 
-.content-header h1 {
+.section-title {
     font-family: 'Spicy Rice', serif;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #7205aa;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.description {
+.section-description {
     font-size: 1.2rem;
     color: #02555b;
-    margin-bottom: 2rem;
-    line-height: 1.6;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
-.content-body {
+.section-content {
     line-height: 1.8;
     font-size: 1.1rem;
-    color: #333;
+    color: #02555b;
     margin-bottom: 2rem;
     max-width: 1000px;
     width: 100%;
 }
 
-.content-body h2 {
+.section-content h1, 
+.section-content h2, 
+.section-content h3 {
     color: #7205aa;
-    font-size: 1.8rem;
+    font-weight: 700;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
-.content-body h3 {
-    color: #af0048;
-    font-size: 1.4rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
+.section-content h1 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid #b152f2;
+    padding-bottom: 0.5rem;
 }
 
-.page-list {
-    border-top: 2px solid #7205aa;
+.section-content h2 {
+    font-size: 2rem;
+    color: #af0048;
+}
+
+.section-content h3 {
+    font-size: 1.5rem;
+    color: #318e16;
+}
+
+.section-content strong {
+    color: #7205aa;
+    font-weight: 700;
+}
+
+.section-content ul, 
+.section-content ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.section-content li {
+    margin-bottom: 0.5rem;
+}
+
+.section-content hr {
+    border: none;
+    border-top: 2px solid #b152f2;
+    margin: 3rem 0;
+}
+
+.section-content blockquote {
+    border-left: 4px solid #7205aa;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #7205aa;
+    background: rgba(114, 5, 170, 0.1);
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.section-pages {
+    margin-top: 3rem;
     padding-top: 2rem;
-    margin-top: 2rem;
+    border-top: 2px solid #b152f2;
     width: 100%;
 }
 
-.page-list h2 {
+.section-pages h2 {
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
     color: #7205aa;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
-.page-item {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.page-card {
     background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
     border-radius: 15px;
-    border-left: 4px solid #7205aa;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #b152f2;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.page-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(114, 5, 170, 0.15);
+.page-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(114, 5, 170, 0.2);
 }
 
-.page-item h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
+.page-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
 }
 
-.page-item h3 a {
+.page-card h3 a {
     color: #7205aa;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.page-item h3 a:hover {
+.page-card h3 a:hover {
     color: #af0048;
 }
 
-.page-item p {
+.page-summary {
+    color: #02555b;
     margin: 0;
-    color: #555;
     line-height: 1.5;
-}
-
-.svg-demo {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.svg-demo svg {
-    max-width: 100%;
-    max-height: 100%;
 }
 
 /* Mobile responsiveness */
@@ -189,19 +206,24 @@
         min-width: 120vw;
     }
     
-    .content-header h1 {
-        font-size: 2rem;
+    .section-title {
+        font-size: 2.2rem;
     }
     
-    .description {
+    .section-description {
         font-size: 1rem;
     }
     
-    .content-body {
+    .section-content {
         font-size: 1rem;
     }
     
-    .page-item {
+    .page-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .page-card {
         padding: 1.2rem;
     }
 }
@@ -212,11 +234,20 @@
         min-width: 110vw;
     }
     
-    .content-header h1 {
+    .section-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+    }
+    
+    .section-title {
         font-size: 1.8rem;
     }
     
-    .page-item {
+    .section-content {
+        font-size: 0.9rem;
+    }
+    
+    .page-card {
         padding: 1rem;
     }
 }
@@ -226,7 +257,7 @@
         scroll-behavior: auto;
     }
     
-    .page-item:hover {
+    .page-card:hover {
         transform: none;
     }
 }

@@ -1,32 +1,91 @@
 /* /static/css/attention.css */
-.attn-card { border: 1px solid #ddd; border-radius: 14px; padding: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
-.attn-row { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
-.attn-hidden { display:none; }
-.attn-center { text-align:center; }
-.page-break { break-after: page; }
+.attn-card {
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+
+.attn-row {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.attn-hidden {
+  display: none;
+}
+
+.attn-center {
+  text-align: center;
+}
+
+.page-break {
+  break-after: page;
+}
 
 /* Slow Look */
-.slowlook { max-width: 680px; margin: 1rem auto; }
-.slowlook .timer { font-variant-numeric: tabular-nums; font-size: 1.8rem; letter-spacing: 0.03em; }
-.slowlook button { padding: .5rem .9rem; border-radius: 10px; border: 1px solid #ccc; cursor: pointer; }
-.slowlook textarea { width: 100%; min-height: 120px; }
+.slowlook {
+  max-width: 680px;
+  margin: 1rem auto;
+}
+
+.slowlook .timer {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.8rem;
+  letter-spacing: 0.03em;
+}
+
+.slowlook button {
+  padding: .5rem .9rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.slowlook textarea {
+  width: 100%;
+  min-height: 120px;
+}
 
 /* Make It Strange */
-.mis { max-width: 820px; margin: 1rem auto; }
-.mis canvas, .mis img { max-width: 100%; height: auto; display: block; }
-.mis .controls { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin:.5rem 0; }
+.mis {
+  max-width: 820px;
+  margin: 1rem auto;
+}
 
-/* Art Wheel */
-.artwheel { 
-  max-width: 780px; 
-  margin: 1rem auto; 
+.mis canvas,
+.mis img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mis .controls {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: .5rem 0;
+}
+
+/* Attention Wheel */
+.attention-wheel {
+  max-width: 780px;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.artwheel .panel { margin-top: .75rem; max-width: 600px; }
-.artwheel .wheel-wrap { 
+
+.attention-wheel .panel {
+  margin-top: .75rem;
+  max-width: 600px;
+}
+
+.attention-wheel .wheel-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,29 +93,33 @@
   width: 100%;
   margin: 0 auto;
 }
-.artwheel .wheel-btns { 
-  display: flex; 
-  gap: .5rem; 
-  justify-content: center; 
+
+.attention-wheel .wheel-btns {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
   margin: .5rem 0;
   width: 100%;
 }
-.artwheel button { 
-  padding: .45rem .8rem; 
-  border-radius: 10px; 
-  border: 1px solid #ccc; 
+
+.attention-wheel button {
+  padding: .45rem .8rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   cursor: pointer;
   background: white;
   transition: all 0.2s ease;
 }
-.artwheel button:hover {
+
+.attention-wheel button:hover {
   background: #f5f5f5;
   transform: translateY(-1px);
 }
+
 /* Interaction affordances */
-.artwheel .wheel { 
-  touch-action: none; 
-  cursor: grab; 
+.attention-wheel .wheel {
+  touch-action: none;
+  cursor: grab;
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -65,35 +128,38 @@
   display: block;
   margin: 0 auto;
 }
-.artwheel .wheel:active { cursor: grabbing; }
+
+.attention-wheel .wheel:active {
+  cursor: grabbing;
+}
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .artwheel {
+  .attention-wheel {
     margin: 0.5rem auto;
     padding: 0.5rem;
     max-width: 95vw;
   }
-  
-  .artwheel .wheel {
+
+  .attention-wheel .wheel {
     width: min(280px, 85vw) !important;
     height: min(280px, 85vw) !important;
     max-width: 280px;
     max-height: 280px;
   }
-  
-  .artwheel .wheel-btns {
+
+  .attention-wheel .wheel-btns {
     margin: 1rem 0 0.5rem 0;
     gap: 1rem;
   }
-  
-  .artwheel button {
+
+  .attention-wheel button {
     min-width: 80px;
     padding: 0.6rem 1rem;
     font-size: 1rem;
   }
-  
-  .artwheel .panel {
+
+  .attention-wheel .panel {
     margin-top: 1rem;
     padding: 0 0.5rem;
     max-width: 90vw;
@@ -101,52 +167,52 @@
 }
 
 @media (max-width: 480px) {
-  .artwheel {
+  .attention-wheel {
     margin: 0.25rem auto;
     padding: 0.25rem;
   }
-  
-  .artwheel .wheel {
+
+  .attention-wheel .wheel {
     width: min(240px, 80vw) !important;
     height: min(240px, 80vw) !important;
     max-width: 240px;
     max-height: 240px;
   }
-  
-  .artwheel .wheel-btns {
+
+  .attention-wheel .wheel-btns {
     gap: 0.75rem;
     margin: 0.75rem 0 0.5rem 0;
   }
-  
-  .artwheel button {
+
+  .attention-wheel button {
     min-width: 70px;
     padding: 0.5rem 0.8rem;
     font-size: 0.9rem;
   }
-  
-  .artwheel .panel {
+
+  .attention-wheel .panel {
     margin-top: 0.75rem;
     max-width: 95vw;
   }
-  
-  .artwheel .aw-title {
+
+  .attention-wheel .aw-title {
     font-size: 1.1rem;
   }
-  
-  .artwheel .aw-desc {
+
+  .attention-wheel .aw-desc {
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 320px) {
-  .artwheel .wheel {
+  .attention-wheel .wheel {
     width: min(200px, 75vw) !important;
     height: min(200px, 75vw) !important;
     max-width: 200px;
     max-height: 200px;
   }
-  
-  .artwheel button {
+
+  .attention-wheel button {
     min-width: 60px;
     padding: 0.4rem 0.6rem;
     font-size: 0.8rem;

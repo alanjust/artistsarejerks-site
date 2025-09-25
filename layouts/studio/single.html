@@ -1,11 +1,14 @@
 {{ define "main" }}
-{{ partial "svg-hero.html" (dict "svgPath" "/svg/studio-template.svg" "fallbackImage" "/images/studio-template-fallback.png" "heroId" "content-hero") }}
+{{ partial "svg-hero.html" (dict "svgPath" "/svg/studio-template.svg" "fallbackImage" "/images/studio-template-fallback.png" "heroId" "studio-hero") }}
 
 <div class="studio-content-overlay">
     <div class="studio-content">
         <article class="studio-article">
             <header class="article-header">
                 <h1 class="article-title">{{ .Title }}</h1>
+                {{ if .Params.subtitle }}
+                <h2 class="article-subtitle">{{ .Params.subtitle }}</h2>
+                {{ end }}
                 {{ if .Date }}
                 <div class="article-meta">
                     <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
@@ -69,6 +72,14 @@
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     line-height: 1.2;
+}
+
+.article-subtitle {
+    font-family: 'Averia Sans Libre', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #02723a;
+    margin-bottom: 1rem;
 }
 
 .article-meta {
@@ -171,6 +182,10 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    .studio-page-container {
+        min-height: 600px;
+    }
+    
     .studio-content {
         padding: 1.5rem;
         margin-top: 1rem;
@@ -180,6 +195,10 @@
     
     .article-title {
         font-size: 2rem;
+    }
+    
+    .article-subtitle {
+        font-size: 1.2rem;
     }
     
     .article-content {
