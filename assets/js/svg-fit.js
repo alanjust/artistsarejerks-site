@@ -1,14 +1,6 @@
 (function () {
-    const stage = document.getElementById('stage');
     const scroller = document.getElementById('svgScroller');
     const art = document.getElementById('art');
-
-    function getViewportHeight() {
-        if (window.visualViewport && window.visualViewport.height) {
-            return window.visualViewport.height;
-        }
-        return window.innerHeight;
-    }
 
     function getAspectRatio(svg) {
         try {
@@ -23,20 +15,15 @@
     function layout() {
         if (!scroller || !art) return;
 
-        const headerEl = document.querySelector('header, .site-header, #site-header');
-        const footerEl = document.querySelector('footer, .site-footer, #site-footer');
+        // Get full viewport height - SVG should fill entire space
+        const vh = window.innerHeight;
 
-        const viewportH = getViewportHeight();
-        const headerH = headerEl ? headerEl.offsetHeight : 0;
-        const footerH = footerEl ? footerEl.offsetHeight : 0;
-        const availH = Math.max(0, viewportH - headerH - footerH);
-
-        if (stage) stage.style.height = availH + 'px';
-        scroller.style.height = availH + 'px';
+        // Set scroller height to full viewport
+        scroller.style.height = vh + 'px';
 
         // Compute width from aspect, then cap it
         const A = getAspectRatio(art);
-        const H = availH;              // define before use
+        const H = vh; // Use full viewport height
         const MAX_W = 1440;            // cap for wide viewports
         const naturalW = Math.ceil(A * H);
         const targetW = Math.min(MAX_W, naturalW);
@@ -44,13 +31,34 @@
         art.style.height = H + 'px';
         art.style.width = targetW + 'px';
 
-        // If wider than viewport, center the scroll; else CSS centers via #svgRack
-        const scrollerWidth = scroller.clientWidth;
-        if (scrollerWidth > 0) {
-            const artWidth = art.getBoundingClientRect().width || targetW;
-            const excess = artWidth - scrollerWidth;
-            scroller.scrollLeft = excess > 0 ? excess / 2 : 0;
+        // Set the rack width to match the SVG width for proper scrolling
+        const rack = document.getElementById('svgRack');
+        if (rack) {
+            rack.style.width = targetW + 'px';
         }
+
+        // Always center the SVG horizontally on load/refresh
+        const scrollerWidth = scroller.clientWidth;
+        if (targetW > scrollerWidth) {
+            // SVG is wider than viewport - center it by scrolling
+            const centerOffset = (targetW - scrollerWidth) / 2;
+            scroller.scrollLeft = centerOffset;
+        } else {
+            // SVG fits in viewport - center it
+            const centerOffset = (scrollerWidth - targetW) / 2;
+            scroller.scrollLeft = centerOffset;
+        }
+        
+        // Ensure centering happens after a small delay for proper rendering
+        setTimeout(() => {
+            if (targetW > scrollerWidth) {
+                const centerOffset = (targetW - scrollerWidth) / 2;
+                scroller.scrollLeft = centerOffset;
+            } else {
+                const centerOffset = (scrollerWidth - targetW) / 2;
+                scroller.scrollLeft = centerOffset;
+            }
+        }, 100);
     }
 
     let rafId = null;
@@ -65,9 +73,13 @@
     if (document.fonts && document.fonts.addEventListener) {
         document.fonts.addEventListener('loadingdone', onResize);
     }
-    if (window.visualViewport && window.visualViewport.addEventListener) {
-        window.visualViewport.addEventListener('resize', onResize, { passive: true });
+    
+    // Additional centering on DOM ready to ensure proper initial positioning
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(onResize, 100); // Small delay to ensure everything is rendered
+        });
+    } else {
+        setTimeout(onResize, 100);
     }
-
-    onResize();
 })();

@@ -1,8 +1,3 @@
-{{ define "head" }}
-{{ $css := resources.Get "css/svg-sandbox.css" | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-{{ end }}
-
 {{ define "main" }}
 <div id="stage">
     <div id="svgScroller" aria-label="Horizontal pan area">
@@ -31,6 +26,7 @@
 {{ end }}
 
 {{ define "footer-scripts" }}
-{{ $js := resources.Get "js/svg-fit.js" | resources.Minify | resources.Fingerprint }}
-<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{/* Only inject the page-specific CSS here; no global script changes. */}}
+{{ $css := resources.Get "css/svg-sandbox.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{ end }}

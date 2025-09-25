@@ -2,62 +2,98 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{{ .Title }}</title>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Spicy+Rice&display=swap"
         rel="stylesheet">
-    {{ $mainCSS := resources.Get "css/main.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}" integrity="{{ $mainCSS.Data.Integrity }}"
-        crossorigin="anonymous">
-    <link rel="manifest" href="/manifest.webmanifest">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="/icons/icon-192.png">
-    <meta name="theme-color" content="#111418">
 
-    <!-- Component styles will be loaded by their respective templates -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('/assets/js/sw.js'));
+        }
+    </script>
+
+    <style>
+        /* Exact match to experimental page */
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        :root {
+            --max-art-w: 1440px;
+            --nudge: 80;
+            --bar-pad: 12px;
+            --bar-bg: rgba(0, 0, 0, 0.06);
+        }
+
+        body {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100svh;
+            background: #fff;
+            color: #111;
+            font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .site-header,
+        .site-footer {
+            padding: var(--bar-pad) clamp(12px, 4vw, 24px);
+            background: var(--bar-bg);
+            backdrop-filter: saturate(1.1);
+        }
+
+        /* Override Hugo header/footer complexity */
+        .site-header {
+            background: var(--bar-bg) !important;
+            height: auto !important;
+            border: none !important;
+        }
+        
+        .site-footer {
+            background: var(--bar-bg) !important;
+            height: auto !important;
+        }
+
+        /* Make main behave exactly like experimental page */
+        .main-content {
+            /* Remove all positioning - let it be a simple grid item */
+        }
+
+        @media (max-width: 700px) {
+            :root {
+                --bar-pad: 8px;
+            }
+        }
+
+        @media (min-height: 900px) {
+            :root {
+                --bar-pad: 16px;
+            }
+        }
+    </style>
 </head>
 
-
-
 <body>
-    <div class="site-wrapper">
-        {{ partial "header.html" . }}
+    {{ partial "header.html" . }}
 
-        <main class="main-content">
-            {{ block "main" . }}{{ end }}
-        </main>
+    <main class="main-content">
+        {{ block "main" . }}{{ end }}
+    </main>
 
-        {{ partial "footer.html" . }}
-    </div>
+    {{ partial "footer.html" . }}
+
+    {{ block "footer-scripts" . }}{{ end }}
 </body>
-
-<style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    font-family: 'Averia Sans Libre', serif;
-    background-color: #f9b749;
-    overflow-x: auto;
-    overflow-y: hidden;
-}
-
-.site-wrapper {
-    height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    min-width: 100vw;
-    overflow: visible;
-}
-</style>
 
 </html>

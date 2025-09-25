@@ -17,7 +17,11 @@ h1 {
   font-family: 'Spicy Rice', serif;
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Averia Sans Libre', serif;
   font-weight: 700;
 }
@@ -28,6 +32,44 @@ a {
   color: inherit;
 }
 
+/* Layout shell (if not already): a column flexbox with a non-shrinking header/footer */
+html,
+body {
+  height: 100%;
+}
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep the footer off the squeeze diet & center both bars */
+header,
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  /* do not let header shrink */
+}
+
+footer,
+.site-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  /* critical: prevents the footer from collapsing */
+}
+
+.main-content {
+  flex: 1 1 auto;
+  /* fills the remaining space between header and footer */
+  min-width: 100%;
+}
 
 
 /* Content layouts for specific pages can be added here if needed */
